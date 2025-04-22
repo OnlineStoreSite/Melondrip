@@ -1,27 +1,86 @@
-/* Basic reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Body styles */
+/* Reset & base */
+* { margin:0; padding:0; box-sizing:border-box; }
 body {
   font-family: Arial, sans-serif;
-  background-color: #f7f7f7;
+  background-color: #f2f2f2;
   color: #333;
-  text-align: center;
-  padding: 2rem;
 }
 
-/* Headings */
-h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+/* Container */
+.product-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 900px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-/* Paragraphs */
-p {
-  font-size: 1.2rem;
+/* Image */
+.product-image {
+  flex: 1 1 400px;
+}
+.product-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Details */
+.product-details {
+  flex: 1 1 400px;
+  padding: 1.5rem;
+}
+.product-details h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+.product-details .price {
+  color: #e60023;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Form */
+form {
+  display: flex;
+  align-items: center;
   margin-bottom: 2rem;
+}
+form label {
+  margin-right: 0.5rem;
+}
+form input[type="number"] {
+  width: 60px;
+  padding: 0.25rem;
+  margin-right: 1rem;
+}
+form button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+form button:hover {
+  background-color: #555;
+}
+
+/* Description */
+.description h2 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+.description p {
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .product-container {
+    flex-direction: column;
+  }
 }
