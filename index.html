@@ -2,62 +2,89 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>In de Knup | Mijn Online Winkel</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@300;400;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Eigen stylesheet -->
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <!-- Sticky Header -->
+  <!-- STICKY HEADER -->
   <header>
     <div class="header-inner">
-      <a href="#" class="logo">In de Knup</a>
+      <!-- Logo (vervang logo.png door jouw bestand) -->
+      <a href="#" class="logo">
+        <img src="logo.png" alt="In de Knup logo" />
+      </a>
+
+      <!-- Navigatie -->
       <nav>
-        <a href="#" class="cart-link" title="Winkelwagen">
-          <!-- Cart SVG Icon -->
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M7 18c-1.1046 0-2 .8954-2 2s.8954 2 2 2 2-.8954 2-2-.8954-2-2-2zM1 2v2h2l3.6 7.59-1.35 
-              2.45C4.45 14.37 4 15.17 4 16c0 1.1046.8954 2 2 2h12v-2H6.42c-.14 0-.25-.11-
-              .25-.25l.03-.12L7.1 13h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-
-              .3.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1046 0-2 .8954-2 2s.8954 
-              2 2 2 2-.8954 2-2-.8954-2-2-2z"/>
-          </svg>
+        <a href="#" class="icon-link cart-link" title="Winkelwagen">
+          <img src="icons/cart.svg" alt="Winkelwagen" class="icon" />
           <span id="cart-count">0</span>
+        </a>
+        <a href="#" class="icon-link account-link" id="account-link" title="Mijn account">
+          <img src="icons/user.svg" alt="Account" class="icon" />
         </a>
       </nav>
     </div>
   </header>
 
-  <!-- Main Product Card -->
+  <!-- MAIN CONTENT -->
   <main>
     <div class="product-container">
       <div class="product-image">
-        <!-- Your product image file in the repo -->
-        <img src="in-de-knup.jpg" alt="In de Knup">
+        <img src="in-de-knup.jpg" alt="In de Knup" />
       </div>
       <div class="product-details">
         <h1>In de Knup</h1>
         <p class="price">€19,95</p>
+
         <form id="add-to-cart-form">
           <label for="quantity">Aantal:</label>
-          <input type="number" id="quantity" name="quantity" value="1" min="1">
+          <input type="number" id="quantity" name="quantity" value="1" min="1" />
           <button type="submit">In winkelwagen</button>
         </form>
+
         <div class="description">
           <h2>Productbeschrijving</h2>
           <p>
-            “In de Knup” is het ultieme spel voor gezellige avonden met vrienden.  
-            Bevat 100 uitdagende vragen en opdrachten die je ongetwijfeld in de knoop zullen brengen!
+            “In de Knup” is het ultieme spel voor gezellige avonden met vrienden. Bevat 100
+            uitdagende vragen en opdrachten die je ongetwijfeld in de knoop zullen brengen!
           </p>
         </div>
       </div>
     </div>
 
-    <!-- Your Slogan -->
     <div class="tagline">
       <p>HET SPEL DAT VERBINDT</p>
     </div>
   </main>
 
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-header">
+      <p>Meer informatie</p>
+    </div>
+    <div class="footer-links">
+      <a href="#">Contact</a>
+      <a href="#">Ruilen en Retourneren</a>
+      <a href="#">Algemene voorwaarden</a>
+      <a href="#">Verzending en bezorging</a>
+      <a href="#">Privacybeleid</a>
+    </div>
+  </footer>
+
+  <!-- Eigen script -->
   <script src="script.js"></script>
 </body>
 </html>
