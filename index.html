@@ -1,99 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Melondrip — Runway to Runway</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="style.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Melondrip - Summer Vibes</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Header with Logo -->
+  <header>
+    <img src="logo.png" alt="Melondrip Logo" class="logo">
+  </header>
 
-<header class="hdr">
-  <div class="hdr-in">
-    <a class="logo" href="#"><img src="logo.png" alt="Melondrip logo"/></a>
-
-    <!-- Audio bar -->
-    <div class="audio">
-      <button id="play" aria-label="Play / pause">
-        <svg viewBox="0 0 24 24" id="icon-play"><polygon points="6,4 20,12 6,20" fill="#fff"/></svg>
-      </button>
-      <input type="range" id="vol" min="0" max="1" step="0.05" value="0.4" aria-label="Volume"/>
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="hero-content">
+      <h1>Your endless summer awaits.</h1>
+      <a href="#section1" class="scroll-indicator">▼</a>
     </div>
+    <!-- Floating Watermelon Emojis -->
+    <div class="emoji-container">
+      <span class="float-emoji">🍉</span>
+      <span class="float-emoji">🍉</span>
+      <span class="float-emoji">🍉</span>
+      <span class="float-emoji">🍉</span>
+      <span class="float-emoji">🍉</span>
+      <span class="float-emoji">🍉</span>
+      <span class="float-emoji">🍉</span>
+      <span class="float-emoji">🍉</span>
+    </div>
+  </section>
 
-    <nav>
-      <a id="cart-link" class="icon" href="#"><svg><use href="#cart"/></svg><span id="cart-count">0</span></a>
-      <a class="icon" href="#"><svg><use href="#user"/></svg></a>
-    </nav>
+  <!-- Section 1: Beach Sunset Story -->
+  <section id="section1" class="story-section image-left">
+    <div class="image-container">
+      <img src="/indexassets/vertical%20beach%20vibes.png" alt="Vertical beach vibes image">
+    </div>
+    <div class="text-content">
+      <h2>Embrace the Golden Hour</h2>
+      <p>The sun dips low, painting the sky in hues of coral and gold. On the shore, every moment slows into a lasting memory.</p>
+    </div>
+  </section>
+
+  <!-- Section 2: Airplane Travel Story -->
+  <section class="story-section image-right">
+    <div class="text-content">
+      <h2>Chasing Horizons</h2>
+      <p>Above the clouds, day turns to dusk in an endless canvas of colors. We chase the sun across the horizon, never letting the dream of summer fade.</p>
+    </div>
+    <div class="image-container">
+      <img src="/indexassets/airplane.png" alt="Airplane flying into sunset">
+    </div>
+  </section>
+
+  <!-- Section 3: Image Grid Gallery -->
+  <section class="grid-section">
+    <div class="grid-container">
+      <div class="grid-item">
+        <img src="/indexassets/horizontal%20beach%20vibes.png" alt="Horizontal beach sunset image">
+      </div>
+      <div class="grid-item">
+        <img src="/indexassets/vertical%20beach%20vibes.png" alt="Vertical beach vibes image">
+      </div>
+      <div class="grid-item">
+        <img src="/indexassets/airplane.png" alt="Airplane wing view image">
+      </div>
+      <div class="grid-item quote">
+        <p>Where summer never ends.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Audio Player -->
+  <div class="audio-player">
+    <button id="play-pause" class="play" aria-label="Play background music"></button>
+    <input id="volume-slider" type="range" min="0" max="1" step="0.01" value="1" aria-label="Volume">
+    <audio id="bg-music" src="/indexassets/house.mp3" loop></audio>
   </div>
-</header>
 
-<!-- ===== HERO ===== -->
-<section class="hero">
-  <div class="bg layer" style="background-image:url('https://images.unsplash.com/photo-1556219483-82ebd3409c8c?auto=format&fit=crop&w=1600&q=80')"></div>
-  <div class="shadow layer"></div>
-  <div class="seeds" aria-hidden="true"></div>
-
-  <div class="hero-txt">
-    <h1>Step off the plane. Feel the heat.</h1>
-    <p>The drip you pack for sunsets, sand and strangers-turned-friends.</p>
-    <a class="btn" href="product.html">Shop the Classic Tee</a>
-  </div>
-</section>
-
-<!-- ===== BADGES ===== -->
-<section class="badges reveal">
-  <div><svg><use href="#truck"/></svg>Free shipping</div>
-  <div><svg><use href="#shield"/></svg>Secure checkout</div>
-  <div><svg><use href="#rotate"/></svg>30-day returns</div>
-</section>
-
-<!-- ===== WAVE DIVIDER ===== -->
-<svg class="wave" viewBox="0 0 1440 120"><path fill="#f2ede6" d="M0 40C180 120 360 -20 540 40s360 60 540 20 360-60 360-60v120H0z"/></svg>
-
-<!-- ===== DROP GRID ===== -->
-<section class="drop reveal">
-  <h2>Shop the drop</h2>
-  <div class="grid">
-    <article class="card">
-      <img src="indexassets/flatlay_coral.png" alt="Coral tee placeholder"/>
-      <h3>Coral</h3><p class="price">$24</p>
-      <a class="btn ghost" href="product.html">Add to cart</a>
-    </article>
-    <article class="card">
-      <img src="indexassets/flatlay_mint.png" alt="Mint tee placeholder"/>
-      <h3>Mint</h3><span class="soon">Coming soon</span>
-    </article>
-    <article class="card">
-      <img src="indexassets/flatlay_cream.png" alt="Cream tee placeholder"/>
-      <h3>Cream</h3><span class="soon">Coming soon</span>
-    </article>
-  </div>
-</section>
-
-<!-- ===== LIFESTYLE STRIP ===== -->
-<section class="banner reveal">
-  <div class="banner-bg layer" style="background-image:url('https://images.unsplash.com/photo-1544213979-81968aa1df80?auto=format&fit=crop&w=1600&q=80')"></div>
-  <h2>Good vibes stick to good cotton</h2>
-</section>
-
-<footer>
-  <p>© 2025 Melondrip LLC</p>
-  <nav><a href="#">Contact</a><a href="#">Returns</a><a href="#">Privacy</a></nav>
-</footer>
-
-<!-- ===== SVG ICONS ===== -->
-<svg style="display:none">
-  <symbol id="cart" viewBox="0 0 24 24"><path d="M6 6h15l-1.5 9h-13Z"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M6 6 4 2H2"/></symbol>
-  <symbol id="user" viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M5.5 21a8.38 8.38 0 0 1 13 0"/></symbol>
-  <symbol id="truck" viewBox="0 0 24 24"><path d="M3 3h13v13H3Z"/><path d="M16 8h4l3 5v3h-7V8Z"/><circle cx="9" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></symbol>
-  <symbol id="shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></symbol>
-  <symbol id="rotate" viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><polyline points="23 20 23 14 17 14"/><path d="M20.49 9A9 9 0 0 0 6.21 4.2L1 10m22 4-5.21 5.8"/></symbol>
-</svg>
-
-<audio id="bg" loop src="indexassets/miami_house.mp3" preload="auto"></audio>
-<script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
