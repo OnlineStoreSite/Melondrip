@@ -1,89 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Welcome | Melondrip</title>
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
-
-  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <!-- HEADER -->
-  <header class="header-main">
-    <div class="header-inner">
-      <a href="index.html" class="logo"><img src="logo.png" alt="Melondrip logo" /></a>
-      <nav>
-        <a href="#" id="cart-link" class="icon-link" title="Cart">
-          <img src="icons/cart.svg" class="icon" alt="Cart" />
-          <span id="cart-count">0</span>
-        </a>
-        <a href="#" id="account-link" class="icon-link" title="Account">
-          <img src="icons/user.svg" class="icon" alt="Account" />
-        </a>
-      </nav>
-    </div>
-  </header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Welcome to Melondrip</h1>
-      <p>Playful products that keep the good vibes flowing.</p>
-      <a href="product.html" class="btn hero-btn">Shop Now</a>
-    </div>
-  </section>
-
-  <!-- BADGES -->
-  <section class="trust-badges">
-    <div><strong>🚚 Free shipping&nbsp;</strong><span>on all orders</span></div>
-    <div><strong>🔒 Secure checkout&nbsp;</strong><span>256-bit SSL</span></div>
-    <div><strong>↩️ 30-day returns&nbsp;</strong><span>no questions asked</span></div>
-  </section>
-
-  <!-- FEATURED -->
-  <section class="featured-products">
-    <h2>Featured Product</h2>
-    <div class="product-card">
-      <img src="product_1/image_1.png" alt="Product 1" />
-      <h3>Product 1</h3>
-      <p class="price">$19.95</p>
-      <a href="product.html" class="btn">View details</a>
-    </div>
-  </section>
-
-  <!-- CART DRAWER -->
-  <div id="cart-modal" class="modal">
-    <div class="mini-cart">
-      <span id="cart-close" class="modal-close">&times;</span>
-      <h2>Your cart</h2>
-      <div id="cart-items" class="cart-items"></div>
-      <div class="cart-summary">
-        <span>Total:</span><span id="cart-total">$0.00</span>
-      </div>
-      <button id="checkout-btn" class="btn full">Proceed to checkout</button>
-    </div>
+<header class="header-main">
+  <div class="header-inner">
+    <a href="index.html" class="logo"><img src="logo.png" alt="Melondrip logo"/></a>
+    <nav>
+      <a href="#" id="cart-link" class="icon-link" title="Cart">
+        <img src="icons/cart.svg" class="icon" alt="cart"/><span id="cart-count">0</span>
+      </a>
+      <a href="#" id="account-link" class="icon-link" title="Account">
+        <img src="icons/user.svg" class="icon" alt="user"/>
+      </a>
+    </nav>
   </div>
+</header>
 
-  <!-- TOAST -->
-  <div id="toast" class="toast"></div>
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>Welcome to Melondrip</h1>
+    <p>Playful products that keep the good vibes flowing.</p>
+    <a href="product.html" class="btn hero-btn">Shop Now</a>
+  </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-header"><p>More information</p></div>
-    <div class="footer-links">
-      <a href="#">Contact</a>
-      <a href="#">Returns &amp; Exchanges</a>
-      <a href="#">Terms &amp; Conditions</a>
-      <a href="#">Shipping &amp; Delivery</a>
-      <a href="#">Privacy Policy</a>
-    </div>
-  </footer>
+<section class="trust-badges">
+  <div class="badge"><svg class="lucide"><use href="#truck"/></svg><span>Free shipping</span></div>
+  <div class="badge"><svg class="lucide"><use href="#shield"/></svg><span>Secure checkout</span></div>
+  <div class="badge"><svg class="lucide"><use href="#rotate"/></svg><span>30-day returns</span></div>
+</section>
 
-  <script src="script.js"></script>
+<section class="featured-products">
+  <h2>Featured Product</h2>
+  <div class="product-card">
+    <img src="product_1/image_1.png" alt="Product 1"/>
+    <h3>Product 1</h3>
+    <p class="price">$19.95</p>
+    <a href="product.html" class="btn ghost">View details</a>
+  </div>
+</section>
+
+<!-- CART DRAWER -->
+<div id="cart-modal" class="modal">
+  <div class="mini-cart">
+    <span id="cart-close" class="modal-close">&times;</span>
+    <h2>Your cart</h2>
+    <div id="cart-items" class="cart-items"></div>
+    <div class="cart-summary"><span>Total:</span><span id="cart-total">$0.00</span></div>
+    <button id="checkout-btn" class="btn full">Proceed to checkout</button>
+  </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<footer>
+  <div class="footer-header"><p>More information</p></div>
+  <div class="footer-links">
+    <a href="#">Contact</a><a href="#">Returns &amp; Exchanges</a>
+    <a href="#">Terms &amp; Conditions</a><a href="#">Shipping &amp; Delivery</a><a href="#">Privacy Policy</a>
+  </div>
+</footer>
+
+<!-- Lucide sprite (3 icons) -->
+<svg style="display:none">
+  <symbol id="truck" viewBox="0 0 24 24"><path d="M3 17V5a2 2 0 0 1 2-2h11v14H3Z"/><path d="M16 5h4l3 5v7h-7V5Z"/><circle cx="7.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></symbol>
+  <symbol id="shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></symbol>
+  <symbol id="rotate" viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><polyline points="23 20 23 14 17 14"/><path d="M20.49 9A9 9 0 0 0 6.21 4.2L1 10m22 4-5.21 5.8"/></symbol>
+</svg>
+
+<script src="script.js"></script>
 </body>
 </html>
