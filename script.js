@@ -1,43 +1,56 @@
 // CART STORAGE & COUNT
 const CART_KEY = 'nuvora_cart';
-const getCart = ()=>JSON.parse(localStorage.getItem(CART_KEY)||'[]');
-const saveCart = c=>localStorage.setItem(CART_KEY,JSON.stringify(c));
-const updateCartCount = ()=>{
-  const ct=getCart().reduce((s,i)=>s+i.quantity,0);
-  document.getElementById('cart-count').textContent=ct;
+const getCart = () => JSON.parse(localStorage.getItem(CART_KEY) || '[]');
+const saveCart = c => localStorage.setItem(CART_KEY, JSON.stringify(c));
+const updateCartCount = () => {
+  const ct = getCart().reduce((s,i) => s + i.quantity, 0);
+  document.getElementById('cart-count').textContent = ct;
 };
 updateCartCount();
 
 // TOAST
-const showToast = (msg='Added to cart')=>{
-  const t=document.getElementById('toast');
-  t.textContent=msg; t.style.opacity='1';
-  setTimeout(()=>t.style.opacity='0',2000);
-};
+function showToast(msg='Added to cart') {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.style.opacity = '1';
+  setTimeout(() => t.style.opacity = '0', 2000);
+}
 
-// CART MODAL HANDLERS
-const cartModal = document.getElementById('cart-modal');
-document.getElementById('cart-link').addEventListener('click',e=>{
-  e.preventDefault(); renderCartItems(); cartModal.style.display='flex';
+// CART DRAWER (slides in from right)
+const cartModal   = document.getElementById('cart-modal');
+const cartContent = cartModal.querySelector('.modal-content');
+document.getElementById('cart-link').addEventListener('click', e => {
+  e.preventDefault();
+  renderCartItems();
+  cartModal.classList.add('open');
 });
-document.getElementById('cart-close').addEventListener('click',()=>cartModal.style.display='none');
-window.addEventListener('click',e=>{ if(e.target===cartModal) cartModal.style.display='none'; });
-document.getElementById('checkout-btn').addEventListener('click',()=> location.href='checkout.html');
+document.getElementById('cart-close').addEventListener('click', () => {
+  cartModal.classList.remove('open');
+});
+window.addEventListener('click', e => {
+  if (e.target === cartModal) cartModal.classList.remove('open');
+});
+document.getElementById('checkout-btn').addEventListener('click', () => {
+  window.location.href = 'checkout.html';
+});
 
 // RENDER CART ITEMS
-function renderCartItems(){
-  const container=document.getElementById('cart-items'), cart=getCart();
-  container.innerHTML='';
-  if(!cart.length){
-    container.innerHTML='<p>Your cart is empty.</p>'; return;
+function renderCartItems() {
+  const container = document.getElementById('cart-items');
+  const cart = getCart();
+  container.innerHTML = '';
+  if (!cart.length) {
+    container.innerHTML = '<p>Your cart is empty.</p>';
+    document.getElementById('cart-total').textContent = '$0.00';
+    return;
   }
-  let total=0;
-  cart.forEach(item=>{
+  let total = 0;
+  cart.forEach(item => {
     total += item.price * item.quantity;
-    const div=document.createElement('div');
-    div.className='cart-item';
-    div.innerHTML=`
-      <img src="${item.image||'product_1.png'}" alt="${item.name}"/>
+    const div = document.createElement('div');
+    div.className = 'cart-item';
+    div.innerHTML = `
+      <img src="${item.image}" alt="${item.name}"/>
       <div class="cart-item-details">
         <p>${item.name}</p>
         <p>$${item.price.toFixed(2)} each</p>
@@ -53,41 +66,44 @@ function renderCartItems(){
   });
   document.getElementById('cart-total').textContent = `$${total.toFixed(2)}`;
 
-  // bind buttons
-  container.querySelectorAll('button').forEach(btn=>{
-    btn.addEventListener('click',()=>{
-      const id=btn.dataset.id, action=btn.dataset.action;
-      let c=getCart(), idx=c.findIndex(i=>i.id===id);
-      if(idx<0) return;
-      if(action==='remove') c.splice(idx,1);
-      if(action==='incr')   c[idx].quantity++;
-      if(action==='decr'&&c[idx].quantity>1) c[idx].quantity--;
-      saveCart(c); updateCartCount(); renderCartItems();
+  // bind controls
+  container.querySelectorAll('button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const { id, action } = btn.dataset;
+      let cart = getCart();
+      const idx = cart.findIndex(i => i.id === id);
+      if (idx < 0) return;
+      if (action === 'remove') cart.splice(idx,1);
+      if (action === 'incr')   cart[idx].quantity++;
+      if (action === 'decr' && cart[idx].quantity > 1) cart[idx].quantity--;
+      saveCart(cart);
+      updateCartCount();
+      renderCartItems();
     });
   });
 }
 
-// IMAGE CAROUSEL & THUMBNAILS
-const images=[], thumbsEl=document.getElementById('thumbnails'), mainImg=document.getElementById('current-image');
-let cur=0, li=1;
+// IMAGE CAROUSEL & THUMBNAILS (reused)
+const images = [], thumbsEl = document.getElementById('thumbnails'), mainImg = document.getElementById('current-image');
+let cur = 0, li = 1;
 (function preload(){
-  const img=new Image();
-  img.src=`product_1/image_${li}.png`;
-  img.onload=()=>{
-    images.push(img.src); li++; preload();
-  };
-  img.onerror=()=>{
-    if(!images.length) images.push('product_1.png');
+  const img = new Image();
+  img.src = `product_1/image_${li}.png`;
+  img.onload = ()=>{ images.push(img.src); li++; preload(); };
+  img.onerror = ()=> {
+    if (!images.length) images.push('product_1.png');
     initCarousel();
   };
 })();
 function initCarousel(){
   mainImg.src = images[0];
   images.forEach((src,i)=>{
-    const t=document.createElement('img');
-    t.src=src; t.className='thumbnail'+(i===0?' selected':'');
-    t.addEventListener('click',()=>{
-      cur=i; mainImg.src=images[i]; updateThumbs();
+    const t = document.createElement('img');
+    t.src = src; t.className = 'thumbnail' + (i===0?' selected':'');
+    t.addEventListener('click', ()=>{
+      cur = i;
+      mainImg.src = images[i];
+      updateThumbs();
     });
     thumbsEl.appendChild(t);
   });
@@ -99,28 +115,39 @@ function updateThumbs(){
 }
 
 // QUANTITY SPINNER & ADD TO CART
-const qtyInput=document.getElementById('quantity');
-document.getElementById('decrease-btn').addEventListener('click',()=>{
-  let v=parseInt(qtyInput.value); if(v>1) qtyInput.value=v-1;
+const qtyInput = document.getElementById('quantity');
+document.getElementById('decrease-btn').addEventListener('click', ()=>{
+  let v = parseInt(qtyInput.value);
+  if (v>1) qtyInput.value = v-1;
 });
-document.getElementById('increase-btn').addEventListener('click',()=>{
-  let v=parseInt(qtyInput.value); qtyInput.value=v+1;
+document.getElementById('increase-btn').addEventListener('click', ()=>{
+  let v = parseInt(qtyInput.value);
+  qtyInput.value = v+1;
 });
-document.getElementById('add-to-cart-form').addEventListener('submit',e=>{
+document.getElementById('add-to-cart-form').addEventListener('submit', e=>{
   e.preventDefault();
-  const details=document.querySelector('.product-details'),
-    id=details.dataset.id,
-    name=details.dataset.name,
-    price=parseFloat(details.dataset.price),
-    img=details.dataset.image,
-    qty=parseInt(qtyInput.value);
-  let c=getCart(), idx=c.findIndex(i=>i.id===id);
-  if(idx>-1) c[idx].quantity+=qty;
-  else      c.push({id,name,price,quantity:qty,image:img});
-  saveCart(c); updateCartCount(); showToast(`${qty}× ${name} added`);
+  const details = document.querySelector('.product-details');
+  const id   = details.dataset.id;
+  const name = details.dataset.name;
+  const price= parseFloat(details.dataset.price);
+  const img  = details.dataset.image;
+  const qty  = parseInt(qtyInput.value);
+  let cart = getCart(), idx = cart.findIndex(i=>i.id===id);
+  if (idx>-1) cart[idx].quantity += qty;
+  else cart.push({ id, name, price, quantity: qty, image: img });
+  saveCart(cart);
+  updateCartCount();
+  showToast(`${qty}× ${name} added to cart`);
 });
 
-// ACCOUNT CLICK
-document.getElementById('account-link').addEventListener('click',e=>{
-  e.preventDefault(); alert('Account functionality coming soon.');
+// LOGO CLICK
+document.querySelector('.logo').addEventListener('click', e=>{
+  e.preventDefault();
+  window.location.href = 'index.html';
+});
+
+// ACCOUNT CLICK (placeholder)
+document.getElementById('account-link').addEventListener('click', e=>{
+  e.preventDefault();
+  alert('Account functionality coming soon.');
 });
