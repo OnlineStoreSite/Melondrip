@@ -2,42 +2,52 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Product 1 | Melondrip</title>
+  <title>Classic Melondrip Tee</title>
   <link rel="stylesheet" href="style.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
 </head>
 <body>
 
-<header class="header-main"><div class="header-inner"><a href="index.html" class="logo"><img src="logo.png" alt="Melondrip"/></a><nav><a href="#" id="cart-link" class="icon-link"><img src="icons/cart.svg" class="icon"/><span id="cart-count">0</span></a><a href="#" id="account-link" class="icon-link"><img src="icons/user.svg" class="icon"/></a></nav></div></header>
-<div class="subheader"><p>Your perfect party game</p></div>
+<header class="header"><div class="header-inner">
+  <a class="logo" href="index.html"><img src="logo.png" alt="Melondrip"/></a>
+  <nav><a id="cart-link" class="header-icon" href="#"><svg viewBox="0 0 24 24"><path d="M6 6h15l-1.5 9h-13Z"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M6 6 4 2H2"/></svg><span id="cart-count">0</span></a><a id="account-link" class="header-icon" href="#"><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M5.5 21a8.38 8.38 0 0 1 13 0"/></svg></a></nav>
+</div></header>
+<div class="subbar">Limited-run summer colourways 🍉</div>
 
-<main>
-  <div class="product-container">
-    <div class="product-image">
-      <img id="current-image" src="" alt="Product 1"/>
-      <div id="thumbnails" class="thumbnails"></div>
-    </div>
-    <div class="product-details" data-id="1" data-name="Product 1" data-price="19.95" data-image="product_1.png">
-      <h1>Product 1</h1>
-      <p class="price">$19.95</p>
-      <form id="add-to-cart-form">
-        <label class="qty-label">Amount:</label>
-        <div class="quantity-spinner">
-          <button type="button" id="decrease-btn" class="qty-btn">–</button>
-          <input readonly id="quantity" value="1"/>
-          <button type="button" id="increase-btn" class="qty-btn">+</button>
-        </div>
-        <button class="btn">Add to cart</button>
-      </form>
-      <div class="description"><h2>Description</h2><p>Lorem ipsum dolor sit amet – replace with real text.</p></div>
-    </div>
+<main class="product">
+  <div class="gallery">
+    <img id="main-img" src="" alt="Classic Tee"/>
+    <div id="thumbs"></div>
   </div>
+
+  <section class="details" data-id="tee" data-name="Classic Melondrip Tee" data-price="24" data-image="product_1/image_1.png">
+    <h1>Classic Melondrip Tee</h1>
+    <p class="price">$24.00</p>
+
+    <form id="add-form">
+      <label>Qty</label>
+      <div class="spinner">
+        <button type="button" id="minus">–</button>
+        <input id="qty" value="1" readonly/>
+        <button type="button" id="plus">+</button>
+      </div>
+      <button class="btn">Add to cart</button>
+    </form>
+
+    <h2>Why you’ll love it</h2>
+    <ul>
+      <li>Mid-weight organic cotton</li>
+      <li>Signature melon-to-drip fade print</li>
+      <li>Pre-shrunk for a perfect relaxed fit</li>
+    </ul>
+  </section>
 </main>
 
-<!-- cart drawer / toast / footer identical to index (copy below) -->
-<div id="cart-modal" class="modal"><div class="mini-cart"><span id="cart-close" class="modal-close">&times;</span><h2>Your cart</h2><div id="cart-items" class="cart-items"></div><div class="cart-summary"><span>Total:</span><span id="cart-total">$0.00</span></div><button id="checkout-btn" class="btn full">Proceed to checkout</button></div></div>
+<!-- drawer / toast / footer identical to index -->
+<div id="cart-modal" class="cart-backdrop"><aside class="cart-drawer"><button id="cart-close" class="close">&times;</button><h2>Your Cart</h2><div id="cart-items"></div><div class="totals"><span>Total</span><span id="cart-total">$0.00</span></div><button id="checkout-btn" class="btn full">Checkout</button></aside></div>
 <div id="toast" class="toast"></div>
-<footer><div class="footer-header"><p>More information</p></div><div class="footer-links"><a href="#">Contact</a><a href="#">Returns &amp; Exchanges</a><a href="#">Terms &amp; Conditions</a><a href="#">Shipping &amp; Delivery</a><a href="#">Privacy Policy</a></div></footer>
+<footer><p>© 2025 Melondrip LLC</p><nav><a href="#">Contact</a><a href="#">Returns</a><a href="#">Privacy</a></nav></footer>
+
 <script src="script.js"></script>
 </body>
 </html>
