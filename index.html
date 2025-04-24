@@ -1,36 +1,38 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>In de Knup | Nuvora</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product 1 | Nuvora</title>
 
   <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@300;400;600&display=swap"
+    href="https://fonts.googleapis.com/css2?
+         family=Montserrat:wght@400;600&
+         family=Poppins:wght@300;400;600&
+         display=swap"
     rel="stylesheet"
   />
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css" />
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css"/>
 </head>
-
 <body>
-  <!-- TOP HEADER -->
+  <!-- MAIN HEADER -->
   <header class="header-main">
     <div class="header-inner">
       <a href="#" class="logo">
-        <img src="logo.png" alt="Nuvora logo" />
+        <img src="logo.png" alt="Nuvora logo"/>
       </a>
       <nav>
-        <a href="#" class="icon-link cart-link" title="Winkelwagen">
-          <img src="icons/cart.svg" alt="Winkelwagen" class="icon" />
+        <a href="#" class="icon-link cart-link" title="Cart">
+          <img src="icons/cart.svg" alt="Cart" class="icon"/>
           <span id="cart-count">0</span>
         </a>
-        <a href="#" class="icon-link account-link" id="account-link" title="Mijn account">
-          <img src="icons/user.svg" alt="Account" class="icon" />
+        <a href="#" class="icon-link account-link" id="account-link" title="Account">
+          <img src="icons/user.svg" alt="Account" class="icon"/>
         </a>
       </nav>
     </div>
@@ -38,30 +40,35 @@
 
   <!-- SUBHEADER / TAGLINE -->
   <div class="subheader">
-    <p>HET SPEL DAT VERBINDT</p>
+    <p>YOUR TAGLINE HERE</p>
   </div>
 
   <!-- MAIN CONTENT -->
   <main>
     <div class="product-container">
       <div class="product-image">
-        <img src="product_1.png" alt="In de Knup product" />
+        <button id="prev-btn" class="nav-btn">‹</button>
+        <img id="current-image" src="product_1.png" alt="Product 1 image"/>
+        <button id="next-btn" class="nav-btn">›</button>
       </div>
       <div class="product-details">
-        <h1>In de Knup</h1>
-        <p class="price">€19,95</p>
+        <h1>Product 1</h1>
+        <p class="price">$XX.XX</p>
 
         <form id="add-to-cart-form">
-          <label for="quantity">Aantal:</label>
-          <input type="number" id="quantity" name="quantity" value="1" min="1" />
-          <button type="submit" class="btn">In winkelwagen</button>
+          <div class="quantity-spinner">
+            <button type="button" id="decrease-btn" class="qty-btn">–</button>
+            <input type="text" id="quantity" value="1" readonly/>
+            <button type="button" id="increase-btn" class="qty-btn">+</button>
+          </div>
+          <button type="submit" class="btn">Add to Cart</button>
         </form>
 
         <div class="description">
-          <h2>Productbeschrijving</h2>
+          <h2>Product Description</h2>
           <p>
-            “In de Knup” is het ultieme spel voor gezellige avonden met vrienden. Bevat 100
-            uitdagende vragen en opdrachten die je ongetwijfeld in de knoop zullen brengen!
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. This is a placeholder
+            description for Product 1. Replace with your actual product details.
           </p>
         </div>
       </div>
@@ -71,18 +78,18 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-header">
-      <p>Meer informatie</p>
+      <p>More Information</p>
     </div>
     <div class="footer-links">
       <a href="#">Contact</a>
-      <a href="#">Ruilen en Retourneren</a>
-      <a href="#">Algemene voorwaarden</a>
-      <a href="#">Verzending en bezorging</a>
-      <a href="#">Privacybeleid</a>
+      <a href="#">Returns &amp; Exchanges</a>
+      <a href="#">Terms &amp; Conditions</a>
+      <a href="#">Shipping &amp; Delivery</a>
+      <a href="#">Privacy Policy</a>
     </div>
   </footer>
 
-  <!-- JavaScript -->
+  <!-- Script -->
   <script src="script.js"></script>
 </body>
 </html>
