@@ -9,17 +9,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link
-    href="https://fonts.googleapis.com/css2?
-         family=Montserrat:wght@400;600&
-         family=Poppins:wght@300;400;600&
-         display=swap"
-    rel="stylesheet"
-  />
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&
+         family=Poppins:wght@300;400;600&display=swap"
+    rel="stylesheet"/>
 
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <!-- FULL-WIDTH HEADER -->
+  <!-- HEADER -->
   <header class="header-main">
     <div class="header-inner">
       <a href="#" class="logo"><img src="logo.png" alt="Nuvora logo"/></a>
@@ -27,30 +24,28 @@
         <a href="#" id="cart-link" class="icon-link" title="Cart">
           <img src="icons/cart.svg" alt="Cart" class="icon"/><span id="cart-count">0</span>
         </a>
-        <a href="#" class="icon-link account-link" id="account-link" title="Account">
+        <a href="#" id="account-link" class="icon-link" title="Account">
           <img src="icons/user.svg" alt="Account" class="icon"/>
         </a>
       </nav>
     </div>
   </header>
-
   <div class="subheader"><p>YOUR TAGLINE HERE</p></div>
 
+  <!-- PRODUCT -->
   <main>
     <div class="product-container">
       <div class="product-image">
         <img id="current-image" src="" alt="Product 1"/>
         <div id="thumbnails" class="thumbnails"></div>
       </div>
-      <div
-        class="product-details"
-        data-id="1"
-        data-name="Product 1"
-        data-price="19.95"
-      >
+      <div class="product-details"
+           data-id="1"
+           data-name="Product 1"
+           data-price="19.95"
+           data-image="product_1.png">
         <h1>Product 1</h1>
         <p class="price">$19.95</p>
-
         <form id="add-to-cart-form">
           <label for="quantity" class="qty-label">Amount:</label>
           <div class="quantity-spinner">
@@ -60,12 +55,11 @@
           </div>
           <button type="submit" class="btn">Add to Cart</button>
         </form>
-
         <div class="description">
           <h2>Product Description</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. This is a placeholder
-            description for Product 1. Replace with your actual product details.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Placeholder
+            text for Product 1. Replace with real details.
           </p>
         </div>
       </div>
@@ -74,12 +68,15 @@
 
   <!-- CART MODAL -->
   <div id="cart-modal" class="modal">
-    <div class="modal-content">
+    <div class="modal-content mini-cart">
       <span id="cart-close" class="modal-close">&times;</span>
       <h2>Your Cart</h2>
       <div id="cart-items" class="cart-items"></div>
+      <div class="cart-summary">
+        <span>Total:</span><span id="cart-total">$0.00</span>
+      </div>
       <div class="cart-actions">
-        <button id="checkout-btn" class="btn">Checkout</button>
+        <button id="checkout-btn" class="btn">Proceed to Checkout</button>
       </div>
     </div>
   </div>
@@ -87,6 +84,7 @@
   <!-- TOAST -->
   <div id="toast" class="toast"></div>
 
+  <!-- FOOTER -->
   <footer>
     <div class="footer-header"><p>More Information</p></div>
     <div class="footer-links">
