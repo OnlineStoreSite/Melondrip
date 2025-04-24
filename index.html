@@ -2,32 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Welcome to Melondrip</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Welcome | Melondrip</title>
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link 
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@300;400;600&display=swap" 
-    rel="stylesheet"/>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <!-- HEADER -->
   <header class="header-main">
     <div class="header-inner">
-      <a href="index.html" class="logo">
-        <img src="logo.png" alt="Melondrip logo"/>
-      </a>
+      <a href="index.html" class="logo"><img src="logo.png" alt="Melondrip logo" /></a>
       <nav>
         <a href="#" id="cart-link" class="icon-link" title="Cart">
-          <img src="icons/cart.svg" alt="Cart" class="icon"/>
+          <img src="icons/cart.svg" class="icon" alt="Cart" />
           <span id="cart-count">0</span>
         </a>
         <a href="#" id="account-link" class="icon-link" title="Account">
-          <img src="icons/user.svg" alt="Account" class="icon"/>
+          <img src="icons/user.svg" class="icon" alt="Account" />
         </a>
       </nav>
     </div>
@@ -37,39 +33,39 @@
   <section class="hero">
     <div class="hero-content">
       <h1>Welcome to Melondrip</h1>
-      <p>Your destination for quality games and more. Discover “Product 1” today.</p>
-      <a href="product.html" class="btn">Shop Now</a>
+      <p>Playful products that keep the good vibes flowing.</p>
+      <a href="product.html" class="btn hero-btn">Shop Now</a>
     </div>
   </section>
 
-  <!-- TRUST BADGES -->
+  <!-- BADGES -->
   <section class="trust-badges">
-    <div><strong>🚚 Free Shipping</strong><span> on all orders</span></div>
-    <div><strong>🛡️ Secure Payments</strong><span> 256-bit SSL</span></div>
-    <div><strong>🔄 Easy Returns</strong><span> 30-day money-back</span></div>
+    <div><strong>🚚 Free shipping&nbsp;</strong><span>on all orders</span></div>
+    <div><strong>🔒 Secure checkout&nbsp;</strong><span>256-bit SSL</span></div>
+    <div><strong>↩️ 30-day returns&nbsp;</strong><span>no questions asked</span></div>
   </section>
 
-  <!-- FEATURED PRODUCT -->
+  <!-- FEATURED -->
   <section class="featured-products">
     <h2>Featured Product</h2>
     <div class="product-card">
-      <img src="product_1/image_1.png" alt="Product 1"/>
+      <img src="product_1/image_1.png" alt="Product 1" />
       <h3>Product 1</h3>
       <p class="price">$19.95</p>
-      <a href="product.html" class="btn">View Details</a>
+      <a href="product.html" class="btn">View details</a>
     </div>
   </section>
 
   <!-- CART DRAWER -->
   <div id="cart-modal" class="modal">
-    <div class="modal-content mini-cart">
+    <div class="mini-cart">
       <span id="cart-close" class="modal-close">&times;</span>
-      <h2>Your Cart</h2>
+      <h2>Your cart</h2>
       <div id="cart-items" class="cart-items"></div>
       <div class="cart-summary">
         <span>Total:</span><span id="cart-total">$0.00</span>
       </div>
-      <button id="checkout-btn" class="btn">Proceed to Checkout</button>
+      <button id="checkout-btn" class="btn full">Proceed to checkout</button>
     </div>
   </div>
 
@@ -78,7 +74,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-header"><p>More Information</p></div>
+    <div class="footer-header"><p>More information</p></div>
     <div class="footer-links">
       <a href="#">Contact</a>
       <a href="#">Returns &amp; Exchanges</a>
