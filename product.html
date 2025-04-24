@@ -8,26 +8,30 @@
 </head>
 <body>
 
-<header class="header"><div class="header-inner">
+<header class="hdr"><div class="hdr-in">
   <a class="logo" href="index.html"><img src="logo.png" alt="Melondrip"/></a>
-  <nav><a id="cart-link" class="header-icon" href="#"><svg viewBox="0 0 24 24"><path d="M6 6h15l-1.5 9h-13Z"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M6 6 4 2H2"/></svg><span id="cart-count">0</span></a><a id="account-link" class="header-icon" href="#"><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M5.5 21a8.38 8.38 0 0 1 13 0"/></svg></a></nav>
+  <nav>
+    <a id="cart-link" class="icon" href="#"><svg viewBox="0 0 24 24"><path d="M6 6h15l-1.5 9h-13Z"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M6 6 4 2H2"/></svg><span id="cart-count">0</span></a>
+    <a id="account-link" class="icon" href="#"><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M5.5 21a8.38 8.38 0 0 1 13 0"/></svg></a>
+  </nav>
 </div></header>
+
 <div class="subbar">Limited-run summer colourways 🍉</div>
 
-<main class="product">
+<main class="prod">
   <div class="gallery">
-    <img id="main-img" src="" alt="Classic Tee"/>
-    <div id="thumbs"></div>
+    <img id="main-img" alt="Classic Tee"/>
+    <div id="thumb-row"></div>
   </div>
 
-  <section class="details" data-id="tee" data-name="Classic Melondrip Tee" data-price="24" data-image="product_1/image_1.png">
+  <section class="info" data-id="tee" data-name="Classic Melondrip Tee" data-price="24" data-image="product_1/image_1.png">
     <h1>Classic Melondrip Tee</h1>
     <p class="price">$24.00</p>
 
     <form id="add-form">
       <label>Qty</label>
-      <div class="spinner">
-        <button type="button" id="minus">–</button>
+      <div class="spin">
+        <button type="button" id="minus">−</button>
         <input id="qty" value="1" readonly/>
         <button type="button" id="plus">+</button>
       </div>
@@ -38,13 +42,13 @@
     <ul>
       <li>Mid-weight organic cotton</li>
       <li>Signature melon-to-drip fade print</li>
-      <li>Pre-shrunk for a perfect relaxed fit</li>
+      <li>Pre-shrunk relaxed fit</li>
     </ul>
   </section>
 </main>
 
 <!-- drawer / toast / footer identical to index -->
-<div id="cart-modal" class="cart-backdrop"><aside class="cart-drawer"><button id="cart-close" class="close">&times;</button><h2>Your Cart</h2><div id="cart-items"></div><div class="totals"><span>Total</span><span id="cart-total">$0.00</span></div><button id="checkout-btn" class="btn full">Checkout</button></aside></div>
+<div id="cart-backdrop" class="backdrop"><aside class="drawer"><button id="drawer-close" class="close">&times;</button><h2>Your cart</h2><div id="drawer-items"></div><div class="total"><span>Total</span><span id="drawer-total">$0.00</span></div><button id="to-checkout" class="btn full">Checkout</button></aside></div>
 <div id="toast" class="toast"></div>
 <footer><p>© 2025 Melondrip LLC</p><nav><a href="#">Contact</a><a href="#">Returns</a><a href="#">Privacy</a></nav></footer>
 
