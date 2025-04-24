@@ -3,79 +3,79 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Welcome | Melondrip</title>
+  <title>Melondrip — Summer Tees &amp; Good Vibes</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
-<header class="header-main">
+<header class="header">
   <div class="header-inner">
-    <a href="index.html" class="logo"><img src="logo.png" alt="Melondrip logo"/></a>
+    <a class="logo" href="index.html"><img src="logo.png" alt="Melondrip"/></a>
+
+    <!-- Inline icons (Lucide) -->
     <nav>
-      <a href="#" id="cart-link" class="icon-link" title="Cart">
-        <img src="icons/cart.svg" class="icon" alt="cart"/><span id="cart-count">0</span>
+      <a href="#" id="cart-link" class="header-icon" title="Cart">
+        <svg viewBox="0 0 24 24"><path d="M6 6h15l-1.5 9h-13Z"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M6 6 4 2H2"/></svg>
+        <span id="cart-count">0</span>
       </a>
-      <a href="#" id="account-link" class="icon-link" title="Account">
-        <img src="icons/user.svg" class="icon" alt="user"/>
+      <a href="#" id="account-link" class="header-icon" title="Account">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M5.5 21a8.38 8.38 0 0 1 13 0"/></svg>
       </a>
     </nav>
   </div>
 </header>
 
+<!-- HERO (solid melon background) -->
 <section class="hero">
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <h1>Welcome to Melondrip</h1>
-    <p>Playful products that keep the good vibes flowing.</p>
-    <a href="product.html" class="btn hero-btn">Shop Now</a>
-  </div>
+  <h1>Welcome to Melondrip</h1>
+  <p>Fresh tees for hotter days &mdash; drop after drop.</p>
+  <a href="product.html" class="btn">Shop the Classic Tee</a>
 </section>
 
-<section class="trust-badges">
-  <div class="badge"><svg class="lucide"><use href="#truck"/></svg><span>Free shipping</span></div>
-  <div class="badge"><svg class="lucide"><use href="#shield"/></svg><span>Secure checkout</span></div>
-  <div class="badge"><svg class="lucide"><use href="#rotate"/></svg><span>30-day returns</span></div>
+<!-- BADGES -->
+<section class="badges">
+  <div><svg><use href="#truck"/></svg> Free shipping</div>
+  <div><svg><use href="#shield"/></svg> Secure checkout</div>
+  <div><svg><use href="#refresh"/></svg> 30-day returns</div>
 </section>
 
-<section class="featured-products">
+<!-- FEATURED -->
+<section class="featured">
   <h2>Featured Product</h2>
-  <div class="product-card">
-    <img src="product_1/image_1.png" alt="Product 1"/>
-    <h3>Product 1</h3>
-    <p class="price">$19.95</p>
+  <article class="card">
+    <img src="product_1/image_1.png" alt="Classic Melondrip Tee"/>
+    <h3>Classic&nbsp;Melondrip&nbsp;Tee</h3>
+    <p class="price">$24.00</p>
     <a href="product.html" class="btn ghost">View details</a>
-  </div>
+  </article>
 </section>
 
 <!-- CART DRAWER -->
-<div id="cart-modal" class="modal">
-  <div class="mini-cart">
-    <span id="cart-close" class="modal-close">&times;</span>
-    <h2>Your cart</h2>
-    <div id="cart-items" class="cart-items"></div>
-    <div class="cart-summary"><span>Total:</span><span id="cart-total">$0.00</span></div>
-    <button id="checkout-btn" class="btn full">Proceed to checkout</button>
-  </div>
+<div id="cart-modal" class="cart-backdrop">
+  <aside class="cart-drawer">
+    <button id="cart-close" class="close">&times;</button>
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div>
+    <div class="totals"><span>Total</span><span id="cart-total">$0.00</span></div>
+    <button id="checkout-btn" class="btn full">Checkout</button>
+  </aside>
 </div>
 
 <div id="toast" class="toast"></div>
 
 <footer>
-  <div class="footer-header"><p>More information</p></div>
-  <div class="footer-links">
-    <a href="#">Contact</a><a href="#">Returns &amp; Exchanges</a>
-    <a href="#">Terms &amp; Conditions</a><a href="#">Shipping &amp; Delivery</a><a href="#">Privacy Policy</a>
-  </div>
+  <p>© 2025 Melondrip LLC</p>
+  <nav><a href="#">Contact</a><a href="#">Returns</a><a href="#">Privacy</a></nav>
 </footer>
 
-<!-- Lucide sprite (3 icons) -->
+<!-- sprite for the three small icons -->
 <svg style="display:none">
-  <symbol id="truck" viewBox="0 0 24 24"><path d="M3 17V5a2 2 0 0 1 2-2h11v14H3Z"/><path d="M16 5h4l3 5v7h-7V5Z"/><circle cx="7.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></symbol>
+  <symbol id="truck" viewBox="0 0 24 24"><path d="M3 3h13v13H3Z"/><path d="M16 8h4l3 5v3h-7V8Z"/><circle cx="9" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></symbol>
   <symbol id="shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></symbol>
-  <symbol id="rotate" viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><polyline points="23 20 23 14 17 14"/><path d="M20.49 9A9 9 0 0 0 6.21 4.2L1 10m22 4-5.21 5.8"/></symbol>
+  <symbol id="refresh" viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><polyline points="23 20 23 14 17 14"/><path d="M20.49 9A9 9 0 0 0 6.21 4.2L1 10m22 4-5.21 5.8"/></symbol>
 </svg>
 
 <script src="script.js"></script>
