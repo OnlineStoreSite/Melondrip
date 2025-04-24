@@ -1,32 +1,41 @@
-/* ------------ AUDIO CONTROL ------------ */
-const audio=document.getElementById('bgm');
-const btn=document.getElementById('sound-btn');
-const cross=document.getElementById('icon-cross');
-const vol=document.getElementById('vol');
+/* === AUDIO === */
+const audio=document.getElementById('bg'),
+      play=document.getElementById('play'),
+      vol=document.getElementById('vol'),
+      playIcon=document.getElementById('icon-play');
+
 let playing=false;
-
-btn.onclick=()=>{
-  playing?audio.pause():audio.play().catch(()=>{});  // ignore autoplay fail
+const toggle=()=>{
+  if(!playing){audio.play().catch(()=>{});}else{audio.pause();}
 };
-audio.onplay =()=>{playing=true;cross.setAttribute('stroke','none');};
-audio.onpause=()=>{playing=false;cross.setAttribute('stroke','#fff');};
-vol.oninput =e=>{audio.volume=e.target.value};
+play.onclick=toggle;
+audio.onplay=()=>{playing=true;playIcon.innerHTML='<rect x="6" y="4" width="3" height="16" fill="#fff"></rect><rect x="15" y="4" width="3" height="16" fill="#fff"></rect>';};
+audio.onpause=()=>{playing=false;playIcon.innerHTML='<polygon points="6,4 20,12 6,20" fill="#fff"></polygon>';};
+vol.oninput=e=>audio.volume=e.target.value;
 
-/* ------------ FLOATING SEEDS ------------ */
+/* === FLOATING SEEDS === */
 const seeds=document.querySelector('.seeds');
-for(let i=0;i<20;i++){
+for(let i=0;i<24;i++){
   const s=document.createElement('span');
   s.textContent='🍉';
   s.style.left=Math.random()*100+'vw';
-  s.style.animationDelay=Math.random()*15+'s';
+  s.style.animationDelay=Math.random()*18+'s';
   s.style.opacity=Math.random()*.4+.3;
   seeds.append(s);
 }
 
-/* ------------ PARALLAX ------------ */
+/* === Parallax === */
 window.addEventListener('scroll',()=>{
-  const y=window.scrollY;
+  const y=scrollY;
   document.querySelectorAll('.layer').forEach(el=>{
-    el.style.transform=`translateY(${y*0.2}px)`;    // subtle parallax
+    el.style.transform=`translateY(${y*0.2}px)`;
   });
 });
+
+/* === Scroll Reveal === */
+const revealEls=document.querySelectorAll('.reveal');
+const io=new IntersectionObserver((entries)=>entries.forEach(e=>e.isIntersecting&&e.target.classList.add('visible')),{threshold:.15});
+revealEls.forEach(el=>io.observe(el));
+
+/* === Dummy cart badge === */
+document.getElementById('cart-count').textContent='0';
