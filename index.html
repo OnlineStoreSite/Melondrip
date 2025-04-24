@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Melondrip – Feel The Heat</title>
+  <title>Melondrip — Runway to Runway</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
@@ -15,88 +15,85 @@
   <div class="hdr-in">
     <a class="logo" href="#"><img src="logo.png" alt="Melondrip logo"/></a>
 
-    <div class="audio-ui">
-      <button id="sound-btn" aria-label="Toggle music">
-        <svg id="icon-sound" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3z"/><path id="icon-cross" d="M16 9l6 6M22 9l-6 6" stroke="none"/></svg>
+    <!-- Audio bar -->
+    <div class="audio">
+      <button id="play" aria-label="Play / pause">
+        <svg viewBox="0 0 24 24" id="icon-play"><polygon points="6,4 20,12 6,20" fill="#fff"/></svg>
       </button>
-      <input type="range" id="vol" min="0" max="1" step="0.05" value="0.4"/>
+      <input type="range" id="vol" min="0" max="1" step="0.05" value="0.4" aria-label="Volume"/>
     </div>
 
     <nav>
-      <a id="cart-link" class="icon" href="#"><svg viewBox="0 0 24 24"><path d="M6 6h15l-1.5 9h-13Z"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M6 6 4 2H2"/></svg><span id="cart-count">0</span></a>
-      <a class="icon" href="#"><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M5.5 21a8.38 8.38 0 0 1 13 0"/></svg></a>
+      <a id="cart-link" class="icon" href="#"><svg><use href="#cart"/></svg><span id="cart-count">0</span></a>
+      <a class="icon" href="#"><svg><use href="#user"/></svg></a>
     </nav>
   </div>
 </header>
 
-<!-- =====  HERO  ===== -->
+<!-- ===== HERO ===== -->
 <section class="hero">
-  <div class="hero-img layer" style="background-image:url('indexassets/hero_runway.jpg')"></div>
-  <div class="palm layer"></div>
+  <div class="bg layer" style="background-image:url('https://images.unsplash.com/photo-1556219483-82ebd3409c8c?auto=format&fit=crop&w=1600&q=80')"></div>
+  <div class="shadow layer"></div>
   <div class="seeds" aria-hidden="true"></div>
 
-  <div class="hero-text">
+  <div class="hero-txt">
     <h1>Step off the plane. Feel the heat.</h1>
     <p>The drip you pack for sunsets, sand and strangers-turned-friends.</p>
     <a class="btn" href="product.html">Shop the Classic Tee</a>
   </div>
 </section>
 
-<!-- =====  BADGES  ===== -->
-<section class="badges">
+<!-- ===== BADGES ===== -->
+<section class="badges reveal">
   <div><svg><use href="#truck"/></svg>Free shipping</div>
   <div><svg><use href="#shield"/></svg>Secure checkout</div>
   <div><svg><use href="#rotate"/></svg>30-day returns</div>
 </section>
 
-<!-- WAVY DIVIDER -->
-<img src="indexassets/wave_divider.svg" class="wave" alt=""/>
+<!-- ===== WAVE DIVIDER ===== -->
+<svg class="wave" viewBox="0 0 1440 120"><path fill="#f2ede6" d="M0 40C180 120 360 -20 540 40s360 60 540 20 360-60 360-60v120H0z"/></svg>
 
-<!-- =====  DROP GRID  ===== -->
-<section class="drop">
+<!-- ===== DROP GRID ===== -->
+<section class="drop reveal">
   <h2>Shop the drop</h2>
   <div class="grid">
     <article class="card">
-      <img src="indexassets/flatlay_coral.png" alt="Coral tee"/>
-      <h3>Coral</h3>
-      <p class="price">$24</p>
+      <img src="indexassets/flatlay_coral.png" alt="Coral tee placeholder"/>
+      <h3>Coral</h3><p class="price">$24</p>
       <a class="btn ghost" href="product.html">Add to cart</a>
     </article>
-
     <article class="card">
-      <img src="indexassets/flatlay_mint.png" alt="Mint tee"/>
-      <h3>Mint&nbsp;(coming soon)</h3>
+      <img src="indexassets/flatlay_mint.png" alt="Mint tee placeholder"/>
+      <h3>Mint</h3><span class="soon">Coming soon</span>
     </article>
-
     <article class="card">
-      <img src="indexassets/flatlay_cream.png" alt="Cream tee"/>
-      <h3>Cream&nbsp;(coming soon)</h3>
+      <img src="indexassets/flatlay_cream.png" alt="Cream tee placeholder"/>
+      <h3>Cream</h3><span class="soon">Coming soon</span>
     </article>
   </div>
 </section>
 
-<!-- =====  LIFESTYLE STRIP  ===== -->
-<section class="banner">
-  <div class="banner-img layer" style="background-image:url('indexassets/lifestyle_beach.jpg')"></div>
+<!-- ===== LIFESTYLE STRIP ===== -->
+<section class="banner reveal">
+  <div class="banner-bg layer" style="background-image:url('https://images.unsplash.com/photo-1544213979-81968aa1df80?auto=format&fit=crop&w=1600&q=80')"></div>
   <h2>Good vibes stick to good cotton</h2>
 </section>
 
-<!-- =====  FOOTER  ===== -->
 <footer>
   <p>© 2025 Melondrip LLC</p>
   <nav><a href="#">Contact</a><a href="#">Returns</a><a href="#">Privacy</a></nav>
 </footer>
 
-<!-- =====  ICON SPRITE  ===== -->
+<!-- ===== SVG ICONS ===== -->
 <svg style="display:none">
+  <symbol id="cart" viewBox="0 0 24 24"><path d="M6 6h15l-1.5 9h-13Z"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M6 6 4 2H2"/></symbol>
+  <symbol id="user" viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M5.5 21a8.38 8.38 0 0 1 13 0"/></symbol>
   <symbol id="truck" viewBox="0 0 24 24"><path d="M3 3h13v13H3Z"/><path d="M16 8h4l3 5v3h-7V8Z"/><circle cx="9" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></symbol>
   <symbol id="shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></symbol>
   <symbol id="rotate" viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><polyline points="23 20 23 14 17 14"/><path d="M20.49 9A9 9 0 0 0 6.21 4.2L1 10m22 4-5.21 5.8"/></symbol>
 </svg>
 
-<!-- AUDIO -->
-<audio id="bgm" loop src="indexassets/miami_house.mp3" preload="auto"></audio>
-
+<audio id="bg" loop src="indexassets/miami_house.mp3" preload="auto"></audio>
 <script src="script.js"></script>
 </body>
 </html>
