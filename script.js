@@ -3,7 +3,7 @@ const CART_KEY = 'nuvora_cart';
 const getCart = () => JSON.parse(localStorage.getItem(CART_KEY) || '[]');
 const saveCart = c => localStorage.setItem(CART_KEY, JSON.stringify(c));
 const updateCartCount = () => {
-  const ct = getCart().reduce((sum, item) => sum + item.quantity, 0);
+  const ct = getCart().reduce((sum, i) => sum + i.quantity, 0);
   document.getElementById('cart-count').textContent = ct;
 };
 updateCartCount();
@@ -18,7 +18,6 @@ function showToast(msg='Added to cart') {
 
 // CART DRAWER
 const cartModal = document.getElementById('cart-modal');
-const miniCart   = cartModal.querySelector('.modal-content');
 document.getElementById('cart-link').addEventListener('click', e => {
   e.preventDefault();
   renderCartItems();
@@ -66,15 +65,15 @@ function renderCartItems() {
   });
   document.getElementById('cart-total').textContent = `$${total.toFixed(2)}`;
 
-  // bind actions
+  // bind controls
   container.querySelectorAll('button').forEach(btn => {
     btn.addEventListener('click', () => {
-      const { id, action } = btn.dataset;
-      let c = getCart(), idx = c.findIndex(i => i.id === id);
-      if (idx < 0) return;
-      if (action === 'remove') c.splice(idx, 1);
-      if (action === 'incr')   c[idx].quantity++;
-      if (action === 'decr' && c[idx].quantity > 1) c[idx].quantity--;
+      const {id,action} = btn.dataset;
+      let c = getCart(), idx = c.findIndex(i=>i.id===id);
+      if (idx<0) return;
+      if (action==='remove') c.splice(idx,1);
+      if (action==='incr')   c[idx].quantity++;
+      if (action==='decr'&&c[idx].quantity>1) c[idx].quantity--;
       saveCart(c);
       updateCartCount();
       renderCartItems();
@@ -83,52 +82,45 @@ function renderCartItems() {
 }
 
 // IMAGE CAROUSEL & THUMBNAILS
-const images = [];
-let currentIndex = 0, loadIndex = 1;
-const thumbsEl = document.getElementById('thumbnails');
-const mainImg  = document.getElementById('current-image');
-
-(function preload() {
+const images = [], thumbsEl = document.getElementById('thumbnails'), mainImg = document.getElementById('current-image');
+let currentIndex=0, loadIndex=1;
+(function preload(){
   const img = new Image();
   img.src = `product_1/image_${loadIndex}.png`;
-  img.onload = () => { images.push(img.src); loadIndex++; preload(); };
-  img.onerror = () => {
-    if (!images.length) images.push('product_1.png');
+  img.onload = ()=>{ images.push(img.src); loadIndex++; preload(); };
+  img.onerror = ()=>{
+    if(!images.length) images.push('product_1.png');
     initCarousel();
   };
 })();
-
-function initCarousel() {
+function initCarousel(){
   mainImg.src = images[0];
-  images.forEach((src, i) => {
-    const t = document.createElement('img');
+  images.forEach((src,i)=>{
+    const t=document.createElement('img');
     t.src = src;
-    t.className = 'thumbnail' + (i === 0 ? ' selected' : '');
-    t.addEventListener('click', () => {
+    t.className = 'thumbnail' + (i===0 ? ' selected' : '');
+    t.addEventListener('click', ()=>{
       currentIndex = i;
-      mainImg.src = src;
-      updateThumbs();
+      mainImg.src = images[i];
+      document.querySelectorAll('.thumbnail').forEach((el,idx)=>{
+        el.classList.toggle('selected', idx===currentIndex);
+      });
     });
     thumbsEl.appendChild(t);
   });
 }
 
-function updateThumbs() {
-  document.querySelectorAll('.thumbnail').forEach((el, i) => {
-    el.classList.toggle('selected', i === currentIndex);
-  });
-}
-
 // QUANTITY SPINNER & ADD TO CART
 const qtyInput = document.getElementById('quantity');
-document.getElementById('decrease-btn').addEventListener('click', () => {
-  let v = parseInt(qtyInput.value); if (v > 1) qtyInput.value = v - 1;
+document.getElementById('decrease-btn').addEventListener('click', ()=>{
+  let v = parseInt(qtyInput.value);
+  if(v>1) qtyInput.value = v-1;
 });
-document.getElementById('increase-btn').addEventListener('click', () => {
-  let v = parseInt(qtyInput.value); qtyInput.value = v + 1;
+document.getElementById('increase-btn').addEventListener('click', ()=>{
+  let v = parseInt(qtyInput.value);
+  qtyInput.value = v+1;
 });
-
-document.getElementById('add-to-cart-form').addEventListener('submit', e => {
+document.getElementById('add-to-cart-form').addEventListener('submit', e=>{
   e.preventDefault();
   const details = document.querySelector('.product-details');
   const id   = details.dataset.id;
@@ -137,9 +129,9 @@ document.getElementById('add-to-cart-form').addEventListener('submit', e => {
   const img  = details.dataset.image;
   const qty  = parseInt(qtyInput.value);
 
-  let c = getCart(), idx = c.findIndex(i => i.id === id);
-  if (idx > -1) c[idx].quantity += qty;
-  else c.push({ id, name, price, quantity: qty, image: img });
+  let c = getCart(), idx = c.findIndex(i=>i.id===id);
+  if(idx>-1) c[idx].quantity += qty;
+  else c.push({id,name,price,quantity:qty,image:img});
 
   saveCart(c);
   updateCartCount();
@@ -147,7 +139,7 @@ document.getElementById('add-to-cart-form').addEventListener('submit', e => {
 });
 
 // ACCOUNT CLICK (placeholder)
-document.getElementById('account-link').addEventListener('click', e => {
+document.getElementById('account-link').addEventListener('click', e=>{
   e.preventDefault();
   alert('Account functionality coming soon.');
 });
