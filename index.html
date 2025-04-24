@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Product 1 | Nuvora</title>
+  <title>Welcome to Nuvora</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&
-         family=Poppins:wght@300;400;600&display=swap"
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@300;400;600&display=swap" 
     rel="stylesheet"/>
 
   <link rel="stylesheet" href="style.css"/>
@@ -19,10 +18,13 @@
   <!-- HEADER -->
   <header class="header-main">
     <div class="header-inner">
-      <a href="#" class="logo"><img src="logo.png" alt="Nuvora logo"/></a>
+      <a href="index.html" class="logo">
+        <img src="logo.png" alt="Nuvora logo"/>
+      </a>
       <nav>
         <a href="#" id="cart-link" class="icon-link" title="Cart">
-          <img src="icons/cart.svg" alt="Cart" class="icon"/><span id="cart-count">0</span>
+          <img src="icons/cart.svg" alt="Cart" class="icon"/>
+          <span id="cart-count">0</span>
         </a>
         <a href="#" id="account-link" class="icon-link" title="Account">
           <img src="icons/user.svg" alt="Account" class="icon"/>
@@ -30,43 +32,35 @@
       </nav>
     </div>
   </header>
-  <div class="subheader"><p>YOUR TAGLINE HERE</p></div>
 
-  <!-- PRODUCT -->
-  <main>
-    <div class="product-container">
-      <div class="product-image">
-        <img id="current-image" src="" alt="Product 1"/>
-        <div id="thumbnails" class="thumbnails"></div>
-      </div>
-      <div class="product-details"
-           data-id="1"
-           data-name="Product 1"
-           data-price="19.95"
-           data-image="product_1.png">
-        <h1>Product 1</h1>
-        <p class="price">$19.95</p>
-        <form id="add-to-cart-form">
-          <label for="quantity" class="qty-label">Amount:</label>
-          <div class="quantity-spinner">
-            <button type="button" id="decrease-btn" class="qty-btn">–</button>
-            <input type="text" id="quantity" value="1" readonly/>
-            <button type="button" id="increase-btn" class="qty-btn">+</button>
-          </div>
-          <button type="submit" class="btn">Add to Cart</button>
-        </form>
-        <div class="description">
-          <h2>Product Description</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Placeholder
-            text for Product 1. Replace with real details.
-          </p>
-        </div>
-      </div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Welcome to Nuvora</h1>
+      <p>Your destination for quality games and more. Discover “Product 1” today.</p>
+      <a href="product.html" class="btn">Shop Now</a>
     </div>
-  </main>
+  </section>
 
-  <!-- CART MODAL -->
+  <!-- TRUST BADGES -->
+  <section class="trust-badges">
+    <div><strong>🚚 Free Shipping</strong><span> on all orders</span></div>
+    <div><strong>🛡️ Secure Payments</strong><span> 256-bit SSL</span></div>
+    <div><strong>🔄 Easy Returns</strong><span> 30-day money-back</span></div>
+  </section>
+
+  <!-- FEATURED PRODUCT -->
+  <section class="featured-products">
+    <h2>Featured Product</h2>
+    <div class="product-card">
+      <img src="product_1/image_1.png" alt="Product 1"/>
+      <h3>Product 1</h3>
+      <p class="price">$19.95</p>
+      <a href="product.html" class="btn">View Details</a>
+    </div>
+  </section>
+
+  <!-- CART DRAWER -->
   <div id="cart-modal" class="modal">
     <div class="modal-content mini-cart">
       <span id="cart-close" class="modal-close">&times;</span>
@@ -75,9 +69,7 @@
       <div class="cart-summary">
         <span>Total:</span><span id="cart-total">$0.00</span>
       </div>
-      <div class="cart-actions">
-        <button id="checkout-btn" class="btn">Proceed to Checkout</button>
-      </div>
+      <button id="checkout-btn" class="btn">Proceed to Checkout</button>
     </div>
   </div>
 
