@@ -3,30 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>In de Knup | Mijn Online Winkel</title>
+  <title>In de Knup | Nuvora</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@300;400;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@300;400;600&display=swap"
     rel="stylesheet"
   />
 
-  <!-- Eigen stylesheet -->
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <!-- STICKY HEADER -->
-  <header>
+  <!-- TOP HEADER -->
+  <header class="header-main">
     <div class="header-inner">
-      <!-- Logo (vervang logo.png door jouw bestand) -->
       <a href="#" class="logo">
-        <img src="logo.png" alt="In de Knup logo" />
+        <img src="logo.png" alt="Nuvora logo" />
       </a>
-
-      <!-- Navigatie -->
       <nav>
         <a href="#" class="icon-link cart-link" title="Winkelwagen">
           <img src="icons/cart.svg" alt="Winkelwagen" class="icon" />
@@ -39,11 +36,16 @@
     </div>
   </header>
 
+  <!-- SUBHEADER / TAGLINE -->
+  <div class="subheader">
+    <p>HET SPEL DAT VERBINDT</p>
+  </div>
+
   <!-- MAIN CONTENT -->
   <main>
     <div class="product-container">
       <div class="product-image">
-        <img src="in-de-knup.jpg" alt="In de Knup" />
+        <img src="product_1.png" alt="In de Knup product" />
       </div>
       <div class="product-details">
         <h1>In de Knup</h1>
@@ -52,7 +54,7 @@
         <form id="add-to-cart-form">
           <label for="quantity">Aantal:</label>
           <input type="number" id="quantity" name="quantity" value="1" min="1" />
-          <button type="submit">In winkelwagen</button>
+          <button type="submit" class="btn">In winkelwagen</button>
         </form>
 
         <div class="description">
@@ -63,10 +65,6 @@
           </p>
         </div>
       </div>
-    </div>
-
-    <div class="tagline">
-      <p>HET SPEL DAT VERBINDT</p>
     </div>
   </main>
 
@@ -84,7 +82,7 @@
     </div>
   </footer>
 
-  <!-- Eigen script -->
+  <!-- JavaScript -->
   <script src="script.js"></script>
 </body>
 </html>
