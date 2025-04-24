@@ -1,41 +1,38 @@
-/* === AUDIO === */
-const audio=document.getElementById('bg'),
-      play=document.getElementById('play'),
-      vol=document.getElementById('vol'),
-      playIcon=document.getElementById('icon-play');
+// Play/Pause toggle and volume control
+document.addEventListener('DOMContentLoaded', function() {
+  const audio = document.getElementById('bg-music');
+  const playPauseBtn = document.getElementById('play-pause');
+  const volumeSlider = document.getElementById('volume-slider');
 
-let playing=false;
-const toggle=()=>{
-  if(!playing){audio.play().catch(()=>{});}else{audio.pause();}
-};
-play.onclick=toggle;
-audio.onplay=()=>{playing=true;playIcon.innerHTML='<rect x="6" y="4" width="3" height="16" fill="#fff"></rect><rect x="15" y="4" width="3" height="16" fill="#fff"></rect>';};
-audio.onpause=()=>{playing=false;playIcon.innerHTML='<polygon points="6,4 20,12 6,20" fill="#fff"></polygon>';};
-vol.oninput=e=>audio.volume=e.target.value;
+  playPauseBtn.addEventListener('click', function() {
+    if (audio.paused) {
+      audio.play();
+      playPauseBtn.classList.remove('play');
+      playPauseBtn.classList.add('pause');
+      playPauseBtn.setAttribute('aria-label', 'Pause background music');
+    } else {
+      audio.pause();
+      playPauseBtn.classList.remove('pause');
+      playPauseBtn.classList.add('play');
+      playPauseBtn.setAttribute('aria-label', 'Play background music');
+    }
+  });
 
-/* === FLOATING SEEDS === */
-const seeds=document.querySelector('.seeds');
-for(let i=0;i<24;i++){
-  const s=document.createElement('span');
-  s.textContent='🍉';
-  s.style.left=Math.random()*100+'vw';
-  s.style.animationDelay=Math.random()*18+'s';
-  s.style.opacity=Math.random()*.4+.3;
-  seeds.append(s);
-}
+  volumeSlider.addEventListener('input', function() {
+    audio.volume = parseFloat(this.value);
+  });
 
-/* === Parallax === */
-window.addEventListener('scroll',()=>{
-  const y=scrollY;
-  document.querySelectorAll('.layer').forEach(el=>{
-    el.style.transform=`translateY(${y*0.2}px)`;
+  // Scroll reveal for sections
+  const revealElements = document.querySelectorAll('.story-section, .grid-section');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealElements.forEach(element => {
+    observer.observe(element);
   });
 });
-
-/* === Scroll Reveal === */
-const revealEls=document.querySelectorAll('.reveal');
-const io=new IntersectionObserver((entries)=>entries.forEach(e=>e.isIntersecting&&e.target.classList.add('visible')),{threshold:.15});
-revealEls.forEach(el=>io.observe(el));
-
-/* === Dummy cart badge === */
-document.getElementById('cart-count').textContent='0';
