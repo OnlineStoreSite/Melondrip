@@ -51,9 +51,14 @@
         <img id="current-image" src="product_1.png" alt="Product 1 image"/>
         <button id="next-btn" class="nav-btn">›</button>
       </div>
-      <div class="product-details">
+      <div
+        class="product-details"
+        data-id="1"
+        data-name="Product 1"
+        data-price="19.95"
+      >
         <h1>Product 1</h1>
-        <p class="price">$XX.XX</p>
+        <p class="price">$19.95</p>
 
         <form id="add-to-cart-form">
           <div class="quantity-spinner">
@@ -67,13 +72,29 @@
         <div class="description">
           <h2>Product Description</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. This is a placeholder
-            description for Product 1. Replace with your actual product details.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. This is a
+            placeholder description for Product 1. Replace with your actual
+            product details.
           </p>
         </div>
       </div>
     </div>
   </main>
+
+  <!-- CART MODAL -->
+  <div id="cart-modal" class="modal">
+    <div class="modal-content">
+      <span id="cart-close" class="modal-close">&times;</span>
+      <h2>Your Cart</h2>
+      <div id="cart-items"></div>
+      <div class="cart-actions">
+        <button id="checkout-btn" class="btn">Checkout</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div id="toast" class="toast">Added to cart</div>
 
   <!-- FOOTER -->
   <footer>
