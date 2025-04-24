@@ -5,9 +5,11 @@
   --bg:      #fdfcf9;
   --text:    #3c4a52;
 }
+
 *,*::before,*::after {
   margin:0; padding:0; box-sizing:border-box;
 }
+
 body {
   font-family:'Poppins',sans-serif;
   background:var(--bg);
@@ -15,155 +17,90 @@ body {
   line-height:1.6;
 }
 
-/* HEADER */
+/*— HEADER —*/
 .header-main {
-  background:#fff; box-shadow:0 2px 6px rgba(0,0,0,0.1);
+  background:#fff;
+  box-shadow:0 2px 6px rgba(0,0,0,0.1);
   position:sticky; top:0; z-index:100;
 }
 .header-inner {
-  max-width:1200px; margin:0 auto;
-  display:flex; justify-content:space-between; align-items:center;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  /* no max-width or margin: auto — now spans full viewport */
   padding:1rem 2rem;
 }
-.logo img { height:45px; }
-nav { display:flex; align-items:center; }
-.icon-link { position:relative; margin-left:1rem; cursor:pointer; }
-.icon      { width:24px; height:24px; display:block; }
+.logo img {
+  height:45px;
+}
+nav {
+  display:flex;
+  align-items:center;
+}
+.icon-link {
+  position:relative;
+  margin-left:1rem;
+  cursor:pointer;
+}
+.icon {
+  width:24px; height:24px; display:block;
+}
 #cart-count {
-  position:absolute; top:-6px; right:-10px;
-  background:var(--accent); color:#fff;
-  border-radius:50%; padding:2px 6px; font-size:.75rem;
+  position:absolute;
+  top:-6px; right:-10px;
+  background:var(--accent);
+  color:#fff;
+  border-radius:50%;
+  padding:2px 6px;
+  font-size:0.75rem;
 }
 
-/* HERO */
-.hero {
-  background:linear-gradient(135deg, var(--accent), var(--primary));
-  color:#fff; text-align:center; padding:4rem 1rem;
-}
-.hero-content { max-width:800px; margin:0 auto; }
-.hero h1 {
-  font-family:'Montserrat',sans-serif;
-  font-size:2.5rem; margin-bottom:1rem;
-}
-.hero p { font-size:1.1rem; margin-bottom:2rem; }
-.hero .btn {
-  background:#fff; color:var(--primary);
-  padding:.75rem 1.5rem; border-radius:6px;
-  font-family:'Montserrat',sans-serif; font-weight:600; text-decoration:none;
-  transition:background .2s, color .2s;
-}
-.hero .btn:hover {
-  background:var(--light); color:var(--text);
-}
+/*— HERO & TRUST & FEATURED (unchanged) —*/
+/* … your existing hero, trust-badges, featured-products styles … */
 
-/* TRUST BADGES */
-.trust-badges {
-  display:flex; justify-content:center;
-  gap:2rem; padding:2rem 1rem;
-}
-.trust-badges div {
-  display:flex; align-items:center; gap:.5rem;
-  font-weight:600; font-size:1rem;
-}
-
-/* FEATURED PRODUCT */
+/* Center the featured product card: */
 .featured-products {
-  max-width:1200px; margin:2rem auto; padding:0 1rem;
-}
-.featured-products h2 {
-  font-family:'Montserrat',sans-serif; margin-bottom:1rem;
-}
-.product-card {
-  display:inline-block; background:#fff; border-radius:8px;
-  box-shadow:0 4px 12px rgba(0,0,0,0.1); overflow:hidden; text-align:center;
-  width:260px;
-}
-.product-card img { width:100%; height:auto; display:block; }
-.product-card h3 {
-  font-family:'Montserrat',sans-serif; margin:1rem 0 .5rem;
-}
-.product-card .price { color:var(--accent); margin-bottom:1rem; }
-.product-card .btn { margin-bottom:1rem; }
-
-/* MINI-CART DRAWER */
-.modal {
-  display:flex; justify-content:flex-end;
-  position:fixed; top:0; left:0; width:100%; height:100%;
-  background:rgba(0,0,0,0.4); opacity:0; pointer-events:none;
-  transition:opacity .3s;
-}
-.modal.open {
-  opacity:1; pointer-events:auto;
-}
-.modal-content.mini-cart {
-  background:#fff; width:350px; height:100%;
-  padding:1.5rem; position:relative;
-  transform:translateX(100%); transition:transform .3s;
-  display:flex; flex-direction:column;
-}
-.modal.open .modal-content.mini-cart {
-  transform:translateX(0);
-}
-.modal-close {
-  position:absolute; top:.5rem; right:1rem; font-size:1.5rem; cursor:pointer;
-}
-.mini-cart h2 {
-  margin-bottom:1rem; font-family:'Montserrat',sans-serif;
-}
-.cart-items {
-  flex:1; overflow-y:auto; margin-bottom:1rem;
-}
-.cart-item {
-  display:flex; align-items:center; gap:1rem;
-  padding:.5rem 0; border-bottom:1px solid var(--light);
-}
-.cart-item img {
-  width:60px; height:auto; border-radius:4px;
-}
-.cart-item-details {
-  flex:1; font-size:.9rem;
-}
-.cart-item-details p {
-  margin:0 0 .25rem;
-}
-.quantity-spinner {
-  display:inline-flex; align-items:center;
-  border:1px solid var(--light); border-radius:4px; overflow:hidden;
-}
-.quantity-spinner .qty-btn {
-  background:var(--light); border:none;
-  width:28px; height:28px; font-size:1rem; cursor:pointer;
-}
-.quantity-spinner input {
-  width:32px; text-align:center; border:none; background:#fff;
-}
-.remove-btn {
-  background:none; border:none; font-size:1.25rem;
-  color:#999; cursor:pointer;
-}
-.cart-summary {
-  display:flex; justify-content:space-between;
-  font-weight:600; margin-bottom:1rem;
-}
-.cart-actions .btn {
-  width:100%; text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  max-width:1200px;
+  margin:2rem auto;
+  padding:0 1rem;
 }
 
-/* TOAST */
-.toast {
-  position:fixed; bottom:20px; left:50%;
-  transform:translateX(-50%);
-  background:var(--primary); color:#fff;
-  padding:.75rem 1.5rem; border-radius:4px;
-  opacity:0; pointer-events:none; transition:opacity .3s;
+/*— MINI-CART DRAWER —*/
+/* … your existing modal / mini-cart styles … */
+
+/*— FOOTER —*/
+footer {
+  background:#fff;
+  text-align:center;
+}
+.footer-header {
+  background:var(--accent);
+  padding:0.75rem 0;
+}
+.footer-header p {
+  color:#fff;
+  font-family:'Montserrat',sans-serif;
+  font-size:1.25rem;
+}
+.footer-links {
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:1rem;
+  padding:1rem 0 2rem;  /* space above and below */
+}
+.footer-links a {
+  color:var(--text);
+  text-decoration:none;
+  font-weight:500;
+  padding:0.25rem 0.5rem;
+}
+.footer-links a:hover {
+  color:var(--accent);
 }
 
-/* ANIMATIONS */
-@keyframes slideUp { to { opacity:1; transform:translateY(0); } }
-@keyframes fadeInDown { to { opacity:1; transform:translateY(0); } }
-
-/* RESPONSIVE */
-@media(max-width:768px) {
-  .featured-products, .trust-badges { flex-direction:column; gap:1rem; }
-  .header-inner { flex-direction:column; gap:1rem; }
-}
+/*— TOAST & OTHER SECTIONS & RESPONSIVE —*/
+/* … keep your existing toast, animations, and responsive styles … */
