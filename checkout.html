@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <!-- HEADER (reuse) -->
+  <!-- HEADER -->
   <header class="header-main">
     <div class="header-inner">
       <a href="#" class="logo"><img src="logo.png" alt="Nuvora logo"/></a>
@@ -17,13 +17,59 @@
 
   <main>
     <div class="checkout-container">
-      <h2>Your Order</h2>
-      <div id="checkout-items"></div>
-      <p id="checkout-total">Total: $0.00</p>
-      <button id="place-order" class="btn">Place Order</button>
+      <!-- ORDER SUMMARY -->
+      <section class="order-summary">
+        <h2>Order Summary</h2>
+        <table class="summary-table">
+          <thead>
+            <tr><th>Product</th><th>Qty</th><th>Unit Price</th><th>Total</th></tr>
+          </thead>
+          <tbody id="checkout-items"></tbody>
+        </table>
+        <div class="summary-total">
+          <span>Subtotal:</span><span id="sub-total">$0.00</span>
+        </div>
+      </section>
+
+      <!-- BILLING & SHIPPING -->
+      <section class="checkout-form">
+        <h2>Shipping & Billing Details</h2>
+        <form id="checkout-form">
+          <div class="form-row">
+            <label>Full Name</label><input type="text" required/>
+          </div>
+          <div class="form-row">
+            <label>Email Address</label><input type="email" required/>
+          </div>
+          <div class="form-row">
+            <label>Shipping Address</label><input type="text" required/>
+          </div>
+          <div class="form-row flex-two">
+            <div><label>City</label><input type="text" required/></div>
+            <div><label>Postal Code</label><input type="text" required/></div>
+          </div>
+          <div class="form-row">
+            <label>Country</label><input type="text" required/>
+          </div>
+          <h2>Payment Method</h2>
+          <div class="form-row">
+            <label><input type="radio" name="pay" checked/> Credit Card</label>
+            <label><input type="radio" name="pay"/> PayPal</label>
+          </div>
+          <div class="form-row">
+            <label>Card Number</label><input type="text" placeholder="•••• •••• •••• ••••"/>
+          </div>
+          <div class="form-row flex-two">
+            <div><label>Expiry Date</label><input type="text" placeholder="MM/YY"/></div>
+            <div><label>CVC</label><input type="text" placeholder="•••"/></div>
+          </div>
+          <button type="submit" class="btn place-order">Place Order</button>
+        </form>
+      </section>
     </div>
   </main>
 
+  <!-- FOOTER -->
   <footer>
     <div class="footer-header"><p>More Information</p></div>
     <div class="footer-links">
@@ -36,32 +82,35 @@
   </footer>
 
   <script>
-    // Load cart and display
-    const CART_KEY = 'nuvora_cart';
-    function getCart(){ return JSON.parse(localStorage.getItem(CART_KEY)||'[]'); }
-    const itemsEl = document.getElementById('checkout-items');
-    const totalEl = document.getElementById('checkout-total');
-
-    let total=0;
-    const cart = getCart();
-    if(cart.length===0){
-      itemsEl.innerHTML='<p>Your cart is empty.</p>';
-    } else {
+    // Populate Order Summary
+    const CART_KEY='nuvora_cart';
+    const cart=JSON.parse(localStorage.getItem(CART_KEY)||'[]');
+    const tbody=document.getElementById('checkout-items');
+    let subtotal=0;
+    if(cart.length){
       cart.forEach(item=>{
-        const line = document.createElement('div');
-        line.className='checkout-item';
-        const subTotal = (item.price*item.quantity).toFixed(2);
-        total += parseFloat(subTotal);
-        line.innerHTML=
-          `<span>${item.name} × ${item.quantity}</span>
-           <span>$${subTotal}</span>`;
-        itemsEl.appendChild(line);
+        const tr=document.createElement('tr');
+        const line=(item.price*item.quantity).toFixed(2);
+        subtotal+=parseFloat(line);
+        tr.innerHTML=`
+          <td>${item.name}</td>
+          <td>${item.quantity}</td>
+          <td>$${item.price.toFixed(2)}</td>
+          <td>$${line}</td>
+        `;
+        tbody.appendChild(tr);
       });
-      totalEl.textContent = `Total: $${total.toFixed(2)}`;
+    } else {
+      const tr=document.createElement('tr');
+      tr.innerHTML='<td colspan="4">Your cart is empty.</td>';
+      tbody.appendChild(tr);
     }
+    document.getElementById('sub-total').textContent = `$${subtotal.toFixed(2)}`;
 
-    document.getElementById('place-order').addEventListener('click',()=>{
-      alert('Thank you! Your order has been placed.');
+    // Place Order Handler
+    document.getElementById('checkout-form').addEventListener('submit', e=>{
+      e.preventDefault();
+      alert('Thank you – your order has been placed!');
       localStorage.removeItem(CART_KEY);
       window.location.href='index.html';
     });
