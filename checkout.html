@@ -10,7 +10,7 @@
   <!-- HEADER -->
   <header class="header-main">
     <div class="header-inner">
-      <a href="#" class="logo"><img src="logo.png" alt="Nuvora logo"/></a>
+      <a href="index.html" class="logo"><img src="logo.png" alt="Nuvora logo"/></a>
     </div>
   </header>
   <div class="subheader"><p>CHECKOUT</p></div>
@@ -22,7 +22,12 @@
         <h2>Order Summary</h2>
         <table class="summary-table">
           <thead>
-            <tr><th>Product</th><th>Qty</th><th>Unit Price</th><th>Total</th></tr>
+            <tr>
+              <th>Product</th>
+              <th>Qty</th>
+              <th>Unit Price</th>
+              <th>Total</th>
+            </tr>
           </thead>
           <tbody id="checkout-items"></tbody>
         </table>
@@ -31,38 +36,58 @@
         </div>
       </section>
 
-      <!-- BILLING & SHIPPING -->
+      <!-- SHIPPING & BILLING FORM -->
       <section class="checkout-form">
         <h2>Shipping & Billing Details</h2>
         <form id="checkout-form">
           <div class="form-row">
-            <label>Full Name</label><input type="text" required/>
+            <label for="full-name">Full Name</label>
+            <input type="text" id="full-name" required/>
           </div>
           <div class="form-row">
-            <label>Email Address</label><input type="email" required/>
+            <label for="email">Email Address</label>
+            <input type="email" id="email" required/>
           </div>
           <div class="form-row">
-            <label>Shipping Address</label><input type="text" required/>
+            <label for="address">Shipping Address</label>
+            <input type="text" id="address" required/>
           </div>
           <div class="form-row flex-two">
-            <div><label>City</label><input type="text" required/></div>
-            <div><label>Postal Code</label><input type="text" required/></div>
+            <div>
+              <label for="city">City</label>
+              <input type="text" id="city" required/>
+            </div>
+            <div>
+              <label for="postal">Postal Code</label>
+              <input type="text" id="postal" required/>
+            </div>
           </div>
           <div class="form-row">
-            <label>Country</label><input type="text" required/>
+            <label for="country">Country</label>
+            <input type="text" id="country" required/>
           </div>
+
+          <!-- PAYMENT -->
           <h2>Payment Method</h2>
           <div class="form-row">
             <label><input type="radio" name="pay" checked/> Credit Card</label>
             <label><input type="radio" name="pay"/> PayPal</label>
           </div>
           <div class="form-row">
-            <label>Card Number</label><input type="text" placeholder="•••• •••• •••• ••••"/>
+            <label for="card-number">Card Number</label>
+            <input type="text" id="card-number" placeholder="•••• •••• •••• ••••"/>
           </div>
           <div class="form-row flex-two">
-            <div><label>Expiry Date</label><input type="text" placeholder="MM/YY"/></div>
-            <div><label>CVC</label><input type="text" placeholder="•••"/></div>
+            <div>
+              <label for="expiry">Expiry Date</label>
+              <input type="text" id="expiry" placeholder="MM/YY"/>
+            </div>
+            <div>
+              <label for="cvc">CVC</label>
+              <input type="text" id="cvc" placeholder="•••"/>
+            </div>
           </div>
+
           <button type="submit" class="btn place-order">Place Order</button>
         </form>
       </section>
@@ -83,16 +108,17 @@
 
   <script>
     // Populate Order Summary
-    const CART_KEY='nuvora_cart';
-    const cart=JSON.parse(localStorage.getItem(CART_KEY)||'[]');
-    const tbody=document.getElementById('checkout-items');
-    let subtotal=0;
-    if(cart.length){
-      cart.forEach(item=>{
-        const tr=document.createElement('tr');
-        const line=(item.price*item.quantity).toFixed(2);
-        subtotal+=parseFloat(line);
-        tr.innerHTML=`
+    const CART_KEY = 'nuvora_cart';
+    const cart = JSON.parse(localStorage.getItem(CART_KEY) || '[]');
+    const tbody = document.getElementById('checkout-items');
+    let subtotal = 0;
+
+    if (cart.length) {
+      cart.forEach(item => {
+        const tr = document.createElement('tr');
+        const line = (item.price * item.quantity).toFixed(2);
+        subtotal += parseFloat(line);
+        tr.innerHTML = `
           <td>${item.name}</td>
           <td>${item.quantity}</td>
           <td>$${item.price.toFixed(2)}</td>
@@ -101,18 +127,19 @@
         tbody.appendChild(tr);
       });
     } else {
-      const tr=document.createElement('tr');
-      tr.innerHTML='<td colspan="4">Your cart is empty.</td>';
+      const tr = document.createElement('tr');
+      tr.innerHTML = '<td colspan="4">Your cart is empty.</td>';
       tbody.appendChild(tr);
     }
+
     document.getElementById('sub-total').textContent = `$${subtotal.toFixed(2)}`;
 
     // Place Order Handler
-    document.getElementById('checkout-form').addEventListener('submit', e=>{
+    document.getElementById('checkout-form').addEventListener('submit', e => {
       e.preventDefault();
-      alert('Thank you – your order has been placed!');
+      alert('Thank you — your order has been placed!');
       localStorage.removeItem(CART_KEY);
-      window.location.href='index.html';
+      window.location.href = 'index.html';
     });
   </script>
 </body>
