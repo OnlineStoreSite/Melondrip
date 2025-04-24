@@ -1,5 +1,5 @@
 // CART STORAGE & COUNT
-const CART_KEY = 'nuvora_cart';
+const CART_KEY = 'melondrip_cart';      // was 'nuvora_cart'
 const getCart = () => JSON.parse(localStorage.getItem(CART_KEY) || '[]');
 const saveCart = c => localStorage.setItem(CART_KEY, JSON.stringify(c));
 const updateCartCount = () => {
