@@ -2,17 +2,15 @@
   ROOT COLORS & FONTS
 ======================================*/
 :root {
-  --primary: #0b2d3c;    /* donkerblauw */
-  --accent: #00a7b6;     /* turkoois */
-  --light-gray: #e5e5e5; /* lichte achtergrond */
+  --primary: #0b2d3c;    /* dark navy */
+  --accent: #00a7b6;     /* turquoise */
+  --light-gray: #e5e5e5; /* light gray */
   --bg: #fdfcf9;         /* off-white */
-  --dark-text: #3c4a52;  /* donkergrijs */
+  --dark-text: #3c4a52;  /* dark gray */
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*, *::before, *::after {
+  margin:0; padding:0; box-sizing:border-box;
 }
 
 body {
@@ -28,43 +26,33 @@ body {
 .header-main {
   background: #fff;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  position: sticky; top:0; z-index:100;
 }
 .header-inner {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 1rem 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  max-width:900px;
+  margin:0 auto;
+  padding:1rem 1.5rem;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 }
-.logo img {
-  height: 45px;
-}
-nav {
-  display: flex;
-  align-items: center;
-}
+.logo img { height:45px; }
+nav { display:flex; align-items:center; }
 .icon-link {
-  position: relative;
-  margin-left: 1rem;
+  position:relative;
+  margin-left:1rem;
 }
 .icon {
-  width: 24px;
-  height: 24px;
-  display: block;
+  width:24px; height:24px; display:block;
 }
 #cart-count {
-  position: absolute;
-  top: -6px;
-  right: -10px;
-  background: var(--accent);
-  color: #fff;
-  border-radius: 50%;
-  padding: 2px 6px;
-  font-size: 0.75rem;
+  position:absolute;
+  top:-6px; right:-10px;
+  background:var(--accent);
+  color:#fff;
+  border-radius:50%;
+  padding:2px 6px;
+  font-size:0.75rem;
 }
 
 /*=====================================
@@ -72,152 +60,190 @@ nav {
 ======================================*/
 .subheader {
   background: var(--accent);
-  text-align: center;
-  padding: 0.75rem 1rem;
-  animation: fadeIn 1s ease-out forwards;
+  text-align:center;
+  padding:0.75rem 1rem;
+  opacity:0; transform:translateY(-10px);
+  animation: fadeInDown 1s ease-out forwards;
 }
 .subheader p {
-  color: #fff;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  letter-spacing: 1px;
+  color:#fff;
+  font-family:'Montserrat',sans-serif;
+  font-weight:600;
+  letter-spacing:1px;
 }
 
 /*=====================================
   MAIN & PRODUCT
 ======================================*/
 main {
-  max-width: 900px;
-  margin: 2.5rem auto;
-  padding: 0 1rem;
+  max-width:900px;
+  margin:2.5rem auto;
+  padding:0 1rem;
 }
 .product-container {
-  display: flex;
-  flex-wrap: wrap;
-  background: #fff;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  opacity: 0;
-  transform: translateY(30px);
+  display:flex;
+  flex-wrap:wrap;
+  background:#fff;
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  opacity:0; transform:translateY(30px);
   animation: slideUp 0.8s ease-out 0.3s forwards;
 }
 .product-image {
-  flex: 1 1 400px;
+  flex:1 1 400px;
+  position:relative;
   background: var(--light-gray);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display:flex; align-items:center; justify-content:center;
 }
 .product-image img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+  max-width:100%; height:auto; display:block;
 }
+.nav-btn {
+  position:absolute;
+  top:50%; transform:translateY(-50%);
+  background:rgba(255,255,255,0.8);
+  border:none;
+  font-size:2rem;
+  color:var(--primary);
+  cursor:pointer;
+  padding:0 .5rem;
+}
+#prev-btn { left:10px; }
+#next-btn { right:10px; }
+
 .product-details {
-  flex: 1 1 400px;
-  padding: 2rem;
+  flex:1 1 400px;
+  padding:2rem;
 }
 .product-details h1 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 2.2rem;
-  color: var(--primary);
-  margin-bottom: 0.5rem;
+  font-family:'Montserrat',sans-serif;
+  font-size:2.2rem;
+  color:var(--primary);
+  margin-bottom:0.5rem;
 }
 .price {
-  color: var(--accent);
-  font-size: 1.6rem;
-  margin-bottom: 1.5rem;
+  color:var(--accent);
+  font-size:1.6rem;
+  margin-bottom:1.5rem;
 }
 
-/* FORM */
-form {
-  display: flex;
-  align-items: center;
-  margin-bottom: 2rem;
+/*=====================================
+  QUANTITY SPINNER
+======================================*/
+.quantity-spinner {
+  display:inline-flex;
+  align-items:center;
+  border:1px solid var(--light-gray);
+  border-radius:4px;
+  overflow:hidden;
+  margin-right:1rem;
 }
-form label {
-  margin-right: 0.5rem;
-  font-weight: 600;
+.qty-btn {
+  background:var(--light-gray);
+  border:none;
+  width:32px;
+  height:32px;
+  font-size:1.25rem;
+  line-height:1;
+  cursor:pointer;
 }
-form input[type="number"] {
-  width: 70px;
-  padding: 0.4rem;
-  margin-right: 1rem;
-  border: 1px solid var(--light-gray);
-  border-radius: 4px;
+#quantity {
+  width:40px;
+  text-align:center;
+  border:none;
+  font-size:1rem;
+  background:#fff;
 }
+
+/*=====================================
+  BUTTON
+======================================*/
 .btn {
-  font-family: 'Montserrat', sans-serif;
-  background: var(--accent);
-  color: #fff;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: transform 0.2s ease, background 0.2s ease;
+  font-family:'Montserrat',sans-serif;
+  background:var(--accent);
+  color:#fff;
+  border:none;
+  padding:0.75rem 1.5rem;
+  border-radius:6px;
+  cursor:pointer;
+  transition:transform 0.2s ease, background 0.2s ease;
 }
 .btn:hover {
-  background: var(--primary);
-  transform: translateY(-2px);
+  background:var(--primary);
+  transform:translateY(-2px);
 }
 
-/* DESCRIPTION */
+/*=====================================
+  DESCRIPTION
+======================================*/
 .description h2 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.3rem;
-  margin-bottom: 0.5rem;
+  font-family:'Montserrat',sans-serif;
+  font-size:1.3rem;
+  margin-bottom:0.5rem;
 }
 .description p {
-  margin-bottom: 1rem;
+  margin-bottom:1rem;
 }
 
 /*=====================================
   FOOTER
 ======================================*/
 footer {
-  margin-top: 4rem;
-  background: #fff;
-  text-align: center;
+  margin-top:4rem;
+  background:#fff;
+  text-align:center;
 }
 .footer-header {
-  background: var(--primary);
-  padding: 1rem 0;
+  background:var(--primary);
+  padding:1rem 0;
 }
 .footer-header p {
-  color: #fff;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.25rem;
+  color:#fff;
+  font-family:'Montserrat',sans-serif;
+  font-size:1.25rem;
 }
 .footer-links {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
-  padding: 2rem 1rem;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:1.5rem;
+  padding:2rem 1rem;
 }
 .footer-links a {
-  color: var(--dark-text);
-  font-weight: 500;
-  text-decoration: none;
+  color:var(--dark-text);
+  font-weight:500;
+  text-decoration:none;
 }
 .footer-links a:hover {
-  color: var(--accent);
+  color:var(--accent);
 }
 
 /*=====================================
   ANIMATIONS
 ======================================*/
 @keyframes slideUp {
-  to { opacity: 1; transform: translateY(0); }
+  to { opacity:1; transform:translateY(0); }
 }
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+@keyframes fadeInDown {
+  to { opacity:1; transform:translateY(0); }
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .product-container { flex-direction: column; }
-  .header-inner { flex-direction: column; gap: 1rem; }
+/*=====================================
+  BOUNCE EFFECT FOR CART
+======================================*/
+.bounce {
+  animation: bounce 0.5s ease-out;
+}
+@keyframes bounce {
+  0%,100% { transform: scale(1); }
+  50%     { transform: scale(1.2); }
+}
+
+/*=====================================
+  RESPONSIVE
+======================================*/
+@media (max-width:768px) {
+  .product-container { flex-direction:column; }
+  .header-inner { flex-direction:column; gap:1rem; }
 }
