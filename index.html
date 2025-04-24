@@ -27,7 +27,7 @@
         <img src="logo.png" alt="Nuvora logo"/>
       </a>
       <nav>
-        <a href="#" class="icon-link cart-link" title="Cart">
+        <a href="#" id="cart-link" class="icon-link" title="Cart">
           <img src="icons/cart.svg" alt="Cart" class="icon"/>
           <span id="cart-count">0</span>
         </a>
@@ -47,10 +47,10 @@
   <main>
     <div class="product-container">
       <div class="product-image">
-        <button id="prev-btn" class="nav-btn">‹</button>
         <img id="current-image" src="product_1.png" alt="Product 1 image"/>
-        <button id="next-btn" class="nav-btn">›</button>
+        <div id="thumbnails" class="thumbnails"></div>
       </div>
+
       <div
         class="product-details"
         data-id="1"
@@ -61,6 +61,7 @@
         <p class="price">$19.95</p>
 
         <form id="add-to-cart-form">
+          <label for="quantity" class="qty-label">Amount:</label>
           <div class="quantity-spinner">
             <button type="button" id="decrease-btn" class="qty-btn">–</button>
             <input type="text" id="quantity" value="1" readonly/>
@@ -86,7 +87,7 @@
     <div class="modal-content">
       <span id="cart-close" class="modal-close">&times;</span>
       <h2>Your Cart</h2>
-      <div id="cart-items"></div>
+      <div id="cart-items" class="cart-items"></div>
       <div class="cart-actions">
         <button id="checkout-btn" class="btn">Checkout</button>
       </div>
@@ -94,7 +95,7 @@
   </div>
 
   <!-- TOAST -->
-  <div id="toast" class="toast">Added to cart</div>
+  <div id="toast" class="toast"></div>
 
   <!-- FOOTER -->
   <footer>
