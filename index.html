@@ -1,83 +1,237 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Melondrip - Summer Vibes</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melondrip - Step off the plane. Feel the heat.</title>
+    <meta name="description" content="Premium tropical lifestyle apparel. Step off the plane. Feel the heat.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Header with Logo -->
-  <header>
-    <img src="logo.png" alt="Melondrip Logo" class="logo">
-  </header>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-container">
+            <div class="logo">
+                <img src="logo.png" alt="Melondrip" width="180" height="60">
+            </div>
+            <div class="header-icons">
+                <button id="cart-button" class="icon-button" aria-label="View cart">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span id="cart-badge" class="cart-badge">0</span>
+                </button>
+                <button id="account-button" class="icon-button" aria-label="User account">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
 
-  <!-- Hero Section -->
-  <section id="hero" class="hero">
-    <div class="hero-content">
-      <h1>Your endless summer awaits.</h1>
-      <a href="#section1" class="scroll-indicator">▼</a>
-    </div>
-    <!-- Floating Watermelon Emojis -->
-    <div class="emoji-container">
-      <span class="float-emoji">🍉</span>
-      <span class="float-emoji">🍉</span>
-      <span class="float-emoji">🍉</span>
-      <span class="float-emoji">🍉</span>
-      <span class="float-emoji">🍉</span>
-      <span class="float-emoji">🍉</span>
-      <span class="float-emoji">🍉</span>
-      <span class="float-emoji">🍉</span>
-    </div>
-  </section>
+    <!-- Hero Section -->
+    <section class="hero parallax-container">
+        <div class="parallax-layer bg-layer" data-speed="0.2">
+            <img src="indexassets/airplane.png" alt="" class="hero-img" loading="lazy">
+        </div>
+        <div class="overlay radial-overlay"></div>
+        <div class="palm-shadow parallax-layer" data-speed="0.15"></div>
+        <div class="melon-container"></div>
+        <div class="hero-content">
+            <h1>Step off the plane. Feel the heat.</h1>
+            <p>Premium tropical apparel for the endless summer lifestyle.</p>
+            <a href="#products" class="button primary-button">Shop Now</a>
+        </div>
+        <div class="hero-overlay-text">
+            <span>MELONDRIP PREMIUM COLLECTION</span>
+        </div>
+        <div class="scroll-indicator">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+        </div>
+    </section>
 
-  <!-- Section 1: Beach Sunset Story -->
-  <section id="section1" class="story-section image-left">
-    <div class="image-container">
-      <img src="/indexassets/vertical%20beach%20vibes.png" alt="Vertical beach vibes image">
-    </div>
-    <div class="text-content">
-      <h2>Embrace the Golden Hour</h2>
-      <p>The sun dips low, painting the sky in hues of coral and gold. On the shore, every moment slows into a lasting memory.</p>
-    </div>
-  </section>
+    <!-- Badges Section -->
+    <section class="badges reveal-section">
+        <div class="container">
+            <div class="badge-grid">
+                <div class="badge-item">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14"></path>
+                        <path d="M12 5l7 7-7 7"></path>
+                    </svg>
+                    <span>Free shipping</span>
+                </div>
+                <div class="badge-item">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                    <span>Secure checkout</span>
+                </div>
+                <div class="badge-item">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    <span>30-day returns</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Section 2: Airplane Travel Story -->
-  <section class="story-section image-right">
-    <div class="text-content">
-      <h2>Chasing Horizons</h2>
-      <p>Above the clouds, day turns to dusk in an endless canvas of colors. We chase the sun across the horizon, never letting the dream of summer fade.</p>
+    <!-- Wave Divider -->
+    <div class="wave-divider parallax-layer" data-speed="0.8">
+        <svg width="100%" height="70" viewBox="0 0 1200 70" preserveAspectRatio="none">
+            <path d="M0,0 C300,60 600,0 900,50 L1200,20 L1200,70 L0,70 Z" fill="var(--cream)"></path>
+        </svg>
     </div>
-    <div class="image-container">
-      <img src="/indexassets/airplane.png" alt="Airplane flying into sunset">
+
+    <!-- Story A Section -->
+    <section class="story story-a reveal-section">
+        <div class="container story-container">
+            <div class="story-image-container">
+                <img src="indexassets/vertical beach vibes.png" alt="" class="story-image" loading="lazy">
+                <div class="image-overlay orange-overlay"></div>
+            </div>
+            <div class="story-content">
+                <h2>Embrace the golden hour.</h2>
+                <p>Drift through balmy evenings in our premium cotton tees. Designed for the moments when time slows down and the horizon glows. Bask in tropical comfort as day melts into dusk.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story B Section -->
+    <section class="story story-b reveal-section">
+        <div class="container story-container">
+            <div class="story-content">
+                <h2>Chasing horizons.</h2>
+                <p>From airport terminals to beachside cocktails, Melondrip travels with you. Splash into new cities, sip under palm trees. Our fabrics stay cool when the adventure heats up. Pack light, live bold.</p>
+            </div>
+            <div class="story-image-container">
+                <img src="indexassets/airplane.png" alt="" class="story-image" loading="lazy">
+                <div class="image-overlay green-overlay"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4-Tile Grid Section -->
+    <section class="tile-grid reveal-section">
+        <div class="container">
+            <div class="tiles">
+                <div class="tile image-tile">
+                    <img src="indexassets/vertical beach vibes.png" alt="" loading="lazy">
+                </div>
+                <div class="tile image-tile">
+                    <img src="indexassets/airplane.png" alt="" loading="lazy">
+                </div>
+                <div class="tile quote-tile">
+                    <blockquote>Where summer never ends.</blockquote>
+                </div>
+                <div class="tile image-tile">
+                    <img src="indexassets/horizontal beach vibes.png" alt="" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Grid Section -->
+    <section id="products" class="product-grid reveal-section">
+        <div class="container">
+            <h2>The Classics Collection</h2>
+            <div class="products">
+                <div class="product-card">
+                    <div class="product-image mint-product">
+                        <img src="indexassets/image_1.png" alt="Classic Melondrip Tee - Mint" class="product-thumbnail" loading="lazy">
+                    </div>
+                    <h3>Classic Melondrip Tee - Mint</h3>
+                    <p class="price">€25</p>
+                    <button class="button buy-button">Add to Cart</button>
+                </div>
+                <div class="product-card featured-product">
+                    <div class="product-image coral-product">
+                        <img src="indexassets/image_2.png" alt="Classic Melondrip Tee - Coral" class="product-thumbnail" loading="lazy">
+                        <div class="bestseller-badge">Bestseller</div>
+                    </div>
+                    <h3>Classic Melondrip Tee - Coral</h3>
+                    <p class="price">€25</p>
+                    <button class="button buy-button">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-image cream-product">
+                        <img src="indexassets/image_1.png" alt="Classic Melondrip Tee - Cream" class="product-thumbnail cream-filter" loading="lazy">
+                    </div>
+                    <h3>Classic Melondrip Tee - Cream</h3>
+                    <p class="price">€25</p>
+                    <button class="button buy-button">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lifestyle Banner -->
+    <section class="lifestyle-banner parallax-container reveal-section">
+        <div class="parallax-layer" data-speed="0.2">
+            <img src="indexassets/horizontal beach vibes.png" alt="Friends wearing Melondrip tees on the beach at sunset" loading="lazy">
+        </div>
+        <div class="banner-content">
+            <h2>Good vibes stick to good cotton.</h2>
+            <p class="banner-tagline">Wear the sunset, feel the summer.</p>
+        </div>
+        <div class="banner-overlay premium-gradient"></div>
+    </section>
+
+    <!-- Footer Lagoon -->
+    <footer class="footer-lagoon">
+        <div class="wave-divider footer-wave">
+            <svg width="100%" height="70" viewBox="0 0 1200 70" preserveAspectRatio="none">
+                <path d="M0,0 C300,60 600,0 900,50 L1200,20 L1200,70 L0,70 Z" fill="var(--twilight)"></path>
+            </svg>
+        </div>
+        <div class="container footer-container">
+            <div class="footer-nav">
+                <a href="#" class="footer-link">Contact</a>
+                <a href="#" class="footer-link">Returns</a>
+                <a href="#" class="footer-link">Privacy</a>
+            </div>
+            <div class="copyright">
+                © <span id="year"></span> Melondrip
+            </div>
+        </div>
+    </footer>
+
+    <!-- Audio Player -->
+    <div class="audio-player">
+        <button id="audio-toggle" class="audio-toggle" aria-label="Play background music">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="play-icon">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="pause-icon">
+                <line x1="6" y1="4" x2="6" y2="20"></line>
+                <line x1="18" y1="4" x2="18" y2="20"></line>
+            </svg>
+        </button>
+        <div class="volume-control">
+            <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="0.4" aria-label="Volume control">
+        </div>
+        <audio id="background-music" loop>
+            <source src="indexassets/house.mp3" type="audio/mp3">
+        </audio>
     </div>
-  </section>
 
-  <!-- Section 3: Image Grid Gallery -->
-  <section class="grid-section">
-    <div class="grid-container">
-      <div class="grid-item">
-        <img src="/indexassets/horizontal%20beach%20vibes.png" alt="Horizontal beach sunset image">
-      </div>
-      <div class="grid-item">
-        <img src="/indexassets/vertical%20beach%20vibes.png" alt="Vertical beach vibes image">
-      </div>
-      <div class="grid-item">
-        <img src="/indexassets/airplane.png" alt="Airplane wing view image">
-      </div>
-      <div class="grid-item quote">
-        <p>Where summer never ends.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Audio Player -->
-  <div class="audio-player">
-    <button id="play-pause" class="play" aria-label="Play background music"></button>
-    <input id="volume-slider" type="range" min="0" max="1" step="0.01" value="1" aria-label="Volume">
-    <audio id="bg-music" src="/indexassets/house.mp3" loop></audio>
-  </div>
-
-  <script src="script.js" defer></script>
+    <!-- JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
