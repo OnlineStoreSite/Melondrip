@@ -36,7 +36,7 @@
 <footer><p>© 2025 Melondrip LLC</p><nav><a href="#">Contact</a><a href="#">Returns</a><a href="#">Privacy</a></nav></footer>
 
 <script>
-const KEY='melondrip_cart';
+const KEY='melondripCart';
 const cart=JSON.parse(localStorage.getItem(KEY)||'[]');
 let sub=0;const body=document.getElementById('summary');
 if(cart.length){cart.forEach(i=>{const t=i.price*i.quantity;sub+=t;body.innerHTML+=`<tr><td>${i.name}</td><td>${i.quantity}</td><td>$${i.price.toFixed(2)}</td><td>$${t.toFixed(2)}</td></tr>`})}else{body.innerHTML='<tr><td colspan="4">Cart empty.</td></tr>';}
